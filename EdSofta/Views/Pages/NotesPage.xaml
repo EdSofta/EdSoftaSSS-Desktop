@@ -1,0 +1,56 @@
+﻿<Page x:Class="EdSofta.Views.Pages.NotesPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:converters="clr-namespace:EdSofta.ViewModels.Converters"
+      Tag="Notes"
+      Name="Notes"
+      mc:Ignorable="d" 
+      d:DesignHeight="600" d:DesignWidth="1000"
+      Background="{DynamicResource LayoutBackground}"
+	  Title="NotesPage">
+
+    <Page.Resources>
+        <converters:PointsToPixelsConverter x:Key="PointsToPixelsConverter"/>
+    </Page.Resources>
+
+    <Grid UseLayoutRounding="True">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="4*"/>
+            <ColumnDefinition Width="3*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <Grid Margin="0,40,0,10"
+              Grid.Row="0"
+              Grid.ColumnSpan="2"
+              Grid.Column="0"
+              Name="PageHeaderContainer">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="4*"/>
+                <ColumnDefinition Width="3*"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid Grid.Column="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="10*"/>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
+
+                <TextBlock Text="{Binding ElementName=Notes, Path=Tag}"
+                           Foreground="{DynamicResource ContentText}"
+                           FontSize="35"
+                           FontWeight="Light"
+                           Grid.Column="1"
+                           Margin="8,0"/>
+            </Grid>
+        </Grid>
+
+    </Grid>
+</Page>

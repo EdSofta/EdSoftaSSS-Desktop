@@ -1,0 +1,114 @@
+﻿<Window x:Class="EdSofta.Views.Windows.DialogWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:EdSofta.Views.Windows"
+        mc:Ignorable="d"
+        FontFamily="{DynamicResource Mulish}"
+        Background="Transparent"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize"
+        WindowStyle="None"
+        ShowInTaskbar="False"
+        PreviewMouseDown="Window_Click"
+        AllowsTransparency="True"
+        Title="DialogWindow" Width="530" Height="400">
+
+    <Border Background="{DynamicResource LayoutBackground}"
+            VerticalAlignment="Center"
+            Margin="20"
+            UseLayoutRounding="True"
+            CornerRadius="10">
+
+        <Border.Effect>
+            <DropShadowEffect Opacity="0.18" 
+                              Color="DarkGray"
+                              ShadowDepth="0"
+                              BlurRadius="16"
+                              x:Name="DropShadowEffect"/>
+        </Border.Effect>
+
+        <Grid  VerticalAlignment="Center"
+               Margin="0,10"
+               UseLayoutRounding="True">
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <TextBlock Text="Dialog Title"
+                       Grid.Row="0"
+                       Margin="25,15"
+                       Name="TitleTextBlock"
+                       Foreground="{DynamicResource ContentText}"
+                       Style="{DynamicResource Heading.Medium.SemiBold}"/>
+
+            <TextBlock Style="{DynamicResource Body.Medium.Regular}"
+                       Foreground="{DynamicResource ContentText}"
+                       Name="MessageTextBlock"
+                       TextWrapping="Wrap"
+                       Grid.Row="1"
+                       Margin="25,5">
+                All current progress will be lost, are you sure?
+            </TextBlock>
+
+            <Grid Grid.Row="2"
+                  Margin="25,30,25,15">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+
+                <Button Height="40"
+                        Grid.Column="1"
+                        Margin="15,0,0,0"
+                        Name="AcceptButton"
+                        HorizontalAlignment="Right"
+                        Click="AcceptButton_OnClick" 
+                        Style="{DynamicResource ThemeButton}">
+
+                    <TextBlock Style="{DynamicResource Body.Medium.SemiBold}"
+                               Text="Yes"
+                               Name="AcceptTextBlock"
+                               Margin="45,0"/>
+
+                </Button>
+
+                <Button Height="40"
+                        Grid.Column="0"
+                        Name="CancelButton"
+                        HorizontalAlignment="Right"
+                        Click="CancelButton_OnClick" 
+                        BorderThickness="0"
+                        IsCancel="True"
+                        VerticalContentAlignment="Center"
+                        Style="{DynamicResource NeutralItemButtonStyle}">
+
+                    <TextBlock Style="{DynamicResource Body.Medium.SemiBold}"
+                               Text="Cancel"
+                               Name="CancelTextBlock"
+                               Foreground="{DynamicResource ContentText[Secondary]}"
+                               Margin="40,0"/>
+
+                </Button>
+            </Grid>
+        </Grid>
+
+        <Border.RenderTransform>
+            <TranslateTransform/>
+        </Border.RenderTransform>
+
+        <Border.Style>
+            <Style TargetType="Border" >
+                <Style.Triggers>
+                    <EventTrigger RoutedEvent="Loaded">
+                        <BeginStoryboard Storyboard="{DynamicResource Animate.SlideInUpDelayedMid}"/>
+                    </EventTrigger>
+                </Style.Triggers>
+            </Style>
+        </Border.Style>
+    </Border>
+</Window>

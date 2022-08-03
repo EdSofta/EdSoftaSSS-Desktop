@@ -1,0 +1,913 @@
+﻿<Page x:Class="EdSofta.Views.GamePages.GameHomePage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:EdSofta.Views.GamePages"
+      xmlns:converters="clr-namespace:EdSofta.ViewModels.Converters"
+      xmlns:wpf="clr-namespace:TheArtOfDev.HtmlRenderer.WPF;assembly=HtmlRenderer.WPF"
+      mc:Ignorable="d" 
+      FontFamily="{DynamicResource Montserrat}"
+      Background="{DynamicResource Game.LayoutBackground}"
+      d:DesignHeight="700" d:DesignWidth="1200"
+      Title="GameHomePage">
+
+    <Page.Resources>
+        <converters:ModalVisibilityConverter x:Key="ModalVisibilityConverter"/>
+        <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
+    </Page.Resources>
+
+    <Grid UseLayoutRounding="True">
+        <Grid Margin="100,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <Image Source="../../Assets/Game Assets/hero-text.png"
+                   Grid.Column="0">
+
+                <Image.RenderTransform>
+                    <TranslateTransform/>
+                </Image.RenderTransform>
+
+                <Image.Style>
+                    <Style TargetType="Image" >
+                        <Style.Triggers>
+                            <EventTrigger RoutedEvent="Loaded">
+                                <BeginStoryboard Storyboard="{DynamicResource Game.Animate.ContinuousBounce[Slow]}"/>
+                            </EventTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </Image.Style>
+            </Image>
+
+            <Image Source="../../Assets/Game Assets/hero.png"
+                   Grid.Column="1"/>
+
+            <StackPanel Grid.Column="1"
+                        Margin="0,50,0,0"
+                        Visibility="{Binding GameExists, Converter={StaticResource BooleanToVisibilityConverter}}"
+                        VerticalAlignment="Top"
+                        HorizontalAlignment="Right"
+                        Orientation="Horizontal">
+
+                <Grid Margin="20,0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+
+                    <TextBlock FontSize="20"
+                               Text="{Binding CurrentGame.Level, StringFormat=Level {0}}"
+                               Foreground="{DynamicResource Game.DarkGradientBackground}"
+                               FontWeight="SemiBold"
+                               TextAlignment="Center"
+                               Margin="0,0,0,-15"/>
+
+                    <Image Source="../../Assets/Game Assets/badge.png"
+                           Height="96"
+                           Grid.Row="1"/>
+                </Grid>
+
+                <Grid Margin="20,0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+
+                    <TextBlock FontSize="20"
+                               Text="{Binding CurrentGame.Coins}"
+                               Foreground="{DynamicResource Game.DarkGradientBackground}"
+                               FontWeight="SemiBold"
+                               TextAlignment="Center"
+                               Margin="0,0,0,-15"/>
+
+                    <Image Source="../../Assets/Game Assets/coinbox.png"
+                           Height="96"
+                           Grid.Row="1"/>
+                </Grid>
+                
+
+                
+            </StackPanel>
+
+            <StackPanel Grid.Column="1"
+                        Margin="0,0,0,50"
+                        VerticalAlignment="Bottom"
+                        HorizontalAlignment="Right"
+                        Orientation="Horizontal">
+
+                <Grid Margin="20,0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+
+                    <Button Style="{DynamicResource GameItemButton}"
+                            Click="HelpButton_OnClick"
+                            Grid.Row="0">
+                        <Image Source="../../Assets/Game Assets/about.png"
+                               Height="96"/>
+
+                        <Button.RenderTransform>
+                            <TranslateTransform/>
+                        </Button.RenderTransform>
+
+                    </Button>
+
+                    <TextBlock FontSize="12"
+                               Grid.Row="1"
+                               Text="Help"
+                               Foreground="{DynamicResource Game.DarkGradientBackground}"
+                               FontWeight="SemiBold"
+                               TextAlignment="Center"
+                               Margin="0,0,0,0"/>
+                </Grid>
+
+                <Grid Margin="20,0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+
+                    <Button Style="{DynamicResource GameItemButton}"
+                            Click="SettingsButton_OnClick"
+                            Grid.Row="0">
+                        <Image Source="../../Assets/Game Assets/settings.png"
+                               Height="96"/>
+
+                        <Button.RenderTransform>
+                            <TranslateTransform/>
+                        </Button.RenderTransform>
+                    </Button>
+
+                    <TextBlock FontSize="12"
+                               Grid.Row="1"
+                               Text="Settings"
+                               Foreground="{DynamicResource Game.DarkGradientBackground}"
+                               FontWeight="SemiBold"
+                               TextAlignment="Center"
+                               Margin="0,0,0,0"/>
+                </Grid>
+
+            </StackPanel>
+
+
+            <Button Height="40"
+                    FontSize="20"
+                    FontWeight="Semibold"
+                    VerticalAlignment="Top"
+                    Padding="10,0"
+                    HorizontalContentAlignment="Stretch"
+                    HorizontalAlignment="Left"
+                    Click="ExitButton_OnClick"
+                    Grid.Column="0"
+                    Margin="0,60,0,0"
+                    Style="{DynamicResource GameItemButton}">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+
+                    <Image Source="../../Assets/Game Assets/exit-icon.png"
+                           Height="25"
+                           Margin="0,0,10,0"
+                           Grid.Column="0"/>
+
+                    <TextBlock Text="Quit Game"
+                               Grid.Column="1"
+                               VerticalAlignment="Center"
+                               FontSize="12"
+                               Foreground="{DynamicResource Game.DarkGradientBackground}"/>
+                </Grid>
+            </Button>
+
+            <Button Height="60"
+                    Width="250"
+                    FontSize="20"
+                    FontWeight="Semibold"
+                    VerticalAlignment="Bottom"
+                    HorizontalAlignment="Left"
+                    Grid.Column="0"
+                    Margin="0,0,0,70"
+                    Content="{Binding ActionText}"
+                    Click="PlayGameButton_OnClick"
+                    Style="{DynamicResource GameButton}">
+            </Button>
+        </Grid>
+
+        <Rectangle Name="Overlay"
+                   Fill="#FF000000"
+                   Grid.Column="0"
+                   Opacity="0.4"
+                   MouseDown="Overlay_OnMouseDown">
+            <Rectangle.Visibility>
+                <MultiBinding Converter="{StaticResource ModalVisibilityConverter}">
+                    <Binding ElementName="ChooseProfessionModal" Path="Visibility"/>
+                    <Binding ElementName="AddProfessionModal" Path="Visibility"/>
+                    <Binding ElementName="HelpModal" Path="Visibility"/>
+                    <Binding ElementName="SettingsModal" Path="Visibility"/>
+                </MultiBinding>
+            </Rectangle.Visibility>
+        </Rectangle>
+
+        <Border Name="ChooseProfessionModal"
+                Background="White"
+                CornerRadius="10"
+                Visibility="Hidden"
+                VerticalAlignment="Center"
+                HorizontalAlignment="Center"
+                Grid.Column="0">
+            <Grid Margin="0"
+                  Height="550" 
+                  Width="500">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <Grid Margin="35,23,30,23"
+                      Grid.Row="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+
+                    <TextBlock Grid.Column="0"
+                               FontSize="15"
+                               FontWeight="Bold"
+                               Foreground="{DynamicResource Game.DarkGradientBackground}"
+                               VerticalAlignment="Center"
+                               Text="Choose a profession"
+                               TextTrimming="CharacterEllipsis"/>
+
+                    <Button Grid.Column="1"
+                            Click="CloseButton_OnClick"
+                            HorizontalAlignment="Right"
+                            VerticalAlignment="Center"
+                            Focusable="False"
+                            Cursor="Hand"
+                            Style="{DynamicResource CloseButton}">
+
+                        <TextBlock FontFamily="{DynamicResource FontAwesome5.FreeSolid}"
+                                   Text="&#xf00d;"
+                                   Style="{DynamicResource CloseButtonText}"/>
+
+                    </Button>
+                </Grid>
+
+                <Separator Background="#F4F4F4"
+                           Margin="0"
+                           Grid.Row="0"
+                           VerticalAlignment="Bottom"/>
+
+                <ListView Margin="0,0"
+                          Grid.Row="2"
+                          Style="{DynamicResource ListViewStyle}"
+                          HorizontalContentAlignment="Left"
+                          Background="Transparent"
+                          BorderThickness="0"
+                          ItemsSource="{Binding Professions}"
+                          Name="ProfessionListView"
+                          ScrollViewer.CanContentScroll="False"
+                          ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                    <ListView.Resources>
+                        <Style TargetType="ListViewItem">
+                            <Setter Property="Margin" Value="0"/>
+                            <Setter Property="Padding" Value="0"/>
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="ListViewItem">
+                                        <Grid>
+                                            <Border CornerRadius="10"
+                                                    Margin="0">
+                                                <Grid Height="50"
+                                                      Name="ProfessionItemGrid"
+                                                      Background="Transparent"
+                                                      MouseLeftButtonDown="ProfessionItemGrid_OnMouseLeftButtonDown">
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition/>
+                                                        <ColumnDefinition Width="Auto"/>
+                                                    </Grid.ColumnDefinitions>
+
+                                                    <TextBlock Text="{Binding ProfessionName}"
+                                                               VerticalAlignment="Center"
+                                                               HorizontalAlignment="Left"
+                                                               Padding="1"
+                                                               Foreground="{DynamicResource Game.DarkGradientBackground}"
+                                                               Margin="50,0,15,0"
+                                                               TextTrimming="CharacterEllipsis"
+                                                               Grid.Column="0"/>
+
+                                                    <Image Grid.Column="1"
+                                                           Margin="0,0,50,0"
+                                                           Source="../../Assets/Game Assets/check.png"
+                                                           Height="27"
+                                                           Visibility="{Binding IsSelected, Converter={StaticResource BooleanToVisibilityConverter}}"/>
+
+                                                    <Separator Background="#F4F4F4"
+                                                               Margin="0"
+                                                               Grid.Column="0"
+                                                               Grid.ColumnSpan="2"
+                                                               VerticalAlignment="Bottom"/>
+                                                </Grid>
+                                            </Border>
+                                        </Grid>
+
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </ListView.Resources>
+                </ListView>
+
+                <Grid Grid.Row="3"
+                      Margin="35,22">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+
+                    <!--todo: add profession-->
+
+                    <!--<StackPanel Orientation="Horizontal"
+                                Grid.Column="0"
+                                VerticalAlignment="Center">
+                        <Button Style="{DynamicResource GameItemButton}"
+                                Click="AddProfession_OnClick">
+                            <TextBlock FontFamily="{DynamicResource FontAwesome5.FreeSolid}"
+                                       FontSize="15"
+                                       Foreground="{DynamicResource Game.DarkGradientBackground}"
+                                       Text="&#xf067;"
+                                       VerticalAlignment="Center"
+                                       Grid.Column="0"/>
+                        </Button>
+
+                        
+                        <TextBlock Text="Add New Profession"
+                               VerticalAlignment="Center"
+                               HorizontalAlignment="Center"
+                               Padding="1"
+                               Foreground="{DynamicResource Game.DarkGradientBackground}"
+                               FontWeight="Medium"
+                               Margin="12,0"
+                               TextTrimming="CharacterEllipsis"/>
+                    </StackPanel>-->
+
+                    <Button Style="{DynamicResource GameButton[Small]}"
+                            Height="40"
+                            FontWeight="SemiBold"
+                            HorizontalAlignment="Right"
+                            Padding="40,0"
+                            Name="ProfessionStartGameButton"
+                            Click="ProfessionStartGameButton_OnClick"
+                            Grid.Column="1"
+                            Cursor="Hand">
+                        START GAME
+                    </Button>
+
+                </Grid>
+
+                <Separator Background="#F4F4F4"
+                           Margin="0"
+                           Grid.Row="3"
+                           VerticalAlignment="Top"/>
+            </Grid>
+
+            <Border.RenderTransform>
+                <TranslateTransform/>
+            </Border.RenderTransform>
+
+            <Border.Style>
+                <Style TargetType="Border" >
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Visibility}" Value="Visible">
+                            <DataTrigger.EnterActions>
+                                <BeginStoryboard Storyboard="{DynamicResource Animate.SlideInUpDelayedMid}"/>
+                            </DataTrigger.EnterActions>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </Border.Style>
+        </Border>
+
+        <Border Name="AddProfessionModal"
+                Background="White"
+                CornerRadius="10"
+                Visibility="Hidden"
+                VerticalAlignment="Center"
+                HorizontalAlignment="Center"
+                Grid.Column="0">
+            <Grid Margin="0"
+                  Height="550" 
+                  Width="500">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <Grid Margin="15,23,30,23"
+                      Grid.Row="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+
+                    <Button Grid.Column="0"
+                            Click="BackButton_OnClick"
+                            HorizontalAlignment="Right"
+                            VerticalAlignment="Center"
+                            Focusable="False"
+                            Cursor="Hand"
+                            Style="{DynamicResource CloseButton}">
+
+                        <TextBlock FontFamily="{DynamicResource FontAwesome5.FreeSolid}"
+                                   Text="&#xf060;"
+                                   Foreground="{DynamicResource Game.DarkGradientBackground}"
+                                   FontSize="15"
+                                   Style="{DynamicResource CloseButtonText}"/>
+
+                    </Button>
+
+                    <TextBlock Grid.Column="1"
+                               FontSize="15"
+                               Margin="10,0"
+                               FontWeight="Bold"
+                               Foreground="{DynamicResource Game.DarkGradientBackground}"
+                               VerticalAlignment="Center"
+                               Text="Add a new profession"
+                               TextTrimming="CharacterEllipsis"/>
+
+                    <Button Grid.Column="2"
+                            Click="CloseButton_OnClick"
+                            HorizontalAlignment="Right"
+                            VerticalAlignment="Center"
+                            Focusable="False"
+                            Cursor="Hand"
+                            Style="{DynamicResource CloseButton}">
+
+                        <TextBlock FontFamily="{DynamicResource FontAwesome5.FreeSolid}"
+                                   Text="&#xf00d;"
+                                   Style="{DynamicResource CloseButtonText}"/>
+
+                    </Button>
+                </Grid>
+
+                <Separator Background="#F4F4F4"
+                           Margin="0"
+                           Grid.Row="0"
+                           VerticalAlignment="Bottom"/>
+
+                <StackPanel Grid.Row="2"
+                            Margin="35,0">
+
+                    <Grid Margin="0,35">
+                        <TextBox Style="{DynamicResource GameTextBoxStyle}"
+                                 Height="46"
+                                 Padding="15,0"
+                                 VerticalContentAlignment="Center"
+                                 Name="ProfessionTextBox"/>
+
+                        <TextBlock Text="Enter name of profession"
+                                   Grid.Column="0"
+                                   Margin="20,0"
+                                   Padding="1"
+                                   IsHitTestVisible="False"
+                                   VerticalAlignment="Center"
+                                   HorizontalAlignment="Left"
+                                   Foreground="{DynamicResource ThemeGrey}">
+
+                            <TextBlock.Style>
+                                <Style TargetType="TextBlock">
+                                    <Setter Property="Visibility" Value="Hidden"/>
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding ElementName=ProfessionTextBox, Path=Text}" Value="">
+                                            <Setter Property="Visibility" Value="Visible"/>
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </TextBlock.Style>
+                        </TextBlock>
+                    </Grid>
+
+                    <TextBlock Text="SELECT 4 SUBJECT COMBINATIONS"
+                               FontSize="15"
+                               Margin="0,0,0,10"/>
+                </StackPanel>
+
+                <ListView Margin="0,0"
+                          Grid.Row="3"
+                          Style="{DynamicResource ListViewStyle}"
+                          HorizontalContentAlignment="Left"
+                          Background="Transparent"
+                          BorderThickness="0"
+                          Name="SubjectsListView"
+                          ScrollViewer.CanContentScroll="False"
+                          ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                    <ListView.Resources>
+                        <Style TargetType="ListViewItem">
+                            <Setter Property="Margin" Value="0"/>
+                            <Setter Property="Padding" Value="0"/>
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="ListViewItem">
+                                        <Grid>
+                                            <Border CornerRadius="10"
+                                                    Margin="0">
+                                                <Grid Height="50"
+                                                      Name="ProfessionItemGrid"
+                                                      Background="Transparent"
+                                                      MouseLeftButtonDown="SubjectItemGrid_OnMouseLeftButtonDown">
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition/>
+                                                        <ColumnDefinition Width="Auto"/>
+                                                    </Grid.ColumnDefinitions>
+
+                                                    <TextBlock Text="{Binding SubjectName}"
+                                                               VerticalAlignment="Center"
+                                                               HorizontalAlignment="Left"
+                                                               Padding="1"
+                                                               Foreground="{DynamicResource Game.DarkGradientBackground}"
+                                                               Margin="50,0,15,0"
+                                                               TextTrimming="CharacterEllipsis"
+                                                               Grid.Column="0"/>
+
+                                                    <Image Grid.Column="1"
+                                                           Margin="0,0,50,0"
+                                                           Source="../../Assets/Game Assets/check.png"
+                                                           Height="27"
+                                                           Visibility="{Binding IsSelected, Converter={StaticResource BooleanToVisibilityConverter}}"/>
+
+                                                    <Separator Background="#F4F4F4"
+                                                               Margin="0"
+                                                               Grid.Column="0"
+                                                               Grid.ColumnSpan="2"
+                                                               VerticalAlignment="Bottom"/>
+                                                </Grid>
+                                            </Border>
+                                        </Grid>
+
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </ListView.Resources>
+                </ListView>
+
+                <Grid Grid.Row="4"
+                      Margin="35,22">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+
+
+                    <Button Style="{DynamicResource GameButton[Small]}"
+                            Height="40"
+                            FontWeight="SemiBold"
+                            HorizontalAlignment="Right"
+                            Padding="40,0"
+                            Grid.Column="1">
+                        START GAME
+                    </Button>
+
+                    
+
+                </Grid>
+
+                <Separator Background="#F4F4F4"
+                           Margin="0"
+                           Grid.Row="4"
+                           VerticalAlignment="Top"/>
+
+                <Separator Background="#F4F4F4"
+                           Margin="0"
+                           Grid.Row="3"
+                           VerticalAlignment="Top"/>
+            </Grid>
+
+            <Border.RenderTransform>
+                <TranslateTransform/>
+            </Border.RenderTransform>
+
+            <Border.Style>
+                <Style TargetType="Border" >
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Visibility}" Value="Visible">
+                            <DataTrigger.EnterActions>
+                                <BeginStoryboard Storyboard="{DynamicResource Animate.SlideInUpDelayedMid}"/>
+                            </DataTrigger.EnterActions>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </Border.Style>
+        </Border>
+
+        <Border Name="HelpModal"
+                Background="White"
+                CornerRadius="10"
+                Visibility="Hidden"
+                VerticalAlignment="Center"
+                HorizontalAlignment="Center"
+                Grid.Column="0">
+            <Grid Margin="0"
+                  Height="550" 
+                  Width="500">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+
+                <Image Grid.Row="0"
+                       Margin="20,0"
+                       Grid.RowSpan="2"
+                       Source="../../Assets/Game Assets/big-background.png"
+                       VerticalAlignment="Top"/>
+
+                <Grid Margin="15,23,30,23"
+                      Grid.Row="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+
+                    <TextBlock Grid.Column="0"
+                               FontSize="15"
+                               Margin="20,0"
+                               FontWeight="Bold"
+                               Foreground="{DynamicResource Game.DarkGradientBackground}"
+                               VerticalAlignment="Center"
+                               Text="Help"
+                               TextTrimming="CharacterEllipsis"/>
+
+                    <Button Grid.Column="1"
+                            Click="CloseButton_OnClick"
+                            HorizontalAlignment="Right"
+                            VerticalAlignment="Center"
+                            Focusable="False"
+                            Cursor="Hand"
+                            Style="{DynamicResource CloseButton}">
+
+                        <TextBlock FontFamily="{DynamicResource FontAwesome5.FreeSolid}"
+                                   Text="&#xf00d;"
+                                   Style="{DynamicResource CloseButtonText}"/>
+
+                    </Button>
+                </Grid>
+
+
+                <ScrollViewer Grid.Row="1"
+                              Style="{DynamicResource ScrollViewerStyle}">
+                    <StackPanel Margin="35,0,35,50">
+                        <TextBlock TextAlignment="Center"
+                                   Foreground="{DynamicResource Game.DarkGradientBackground}"
+                                   TextWrapping="Wrap"
+                                   Margin="0,10">
+                            Your adventure starts here, with a series of challenges per level and due rewards.
+                        </TextBlock>
+
+                        <TextBlock TextAlignment="Center"
+                                   TextWrapping="Wrap"
+                                   Margin="0,30,0,0"
+                                   FontSize="20"
+                                   FontWeight="SemiBold"
+                                   Foreground="{DynamicResource Game.LightGradientBackground}">
+                            Challenge tokens
+                        </TextBlock>
+
+                        <TextBlock TextAlignment="Center"
+                                   TextWrapping="Wrap"
+                                   Margin="0,10"
+                                   Foreground="{DynamicResource Game.DarkGradientBackground}">
+                            These items help ease the difficulty of a challenge and can be bought with in-game coins.
+                        </TextBlock>
+
+                        <!--Extra time-->
+                        <Grid Margin="0,20">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+
+                            <Image Source="../../Assets/Game Assets/add time.png"
+                                   Height="64"
+                                   Grid.Column="0"/>
+
+                            <StackPanel Grid.Column="1"
+                                        Margin="20,0">
+                                <TextBlock Text="EXTRA TIME"
+                                           Foreground="{DynamicResource Game.DarkGradientBackground}"
+                                           FontWeight="SemiBold"/>
+
+                                <TextBlock Margin="0,8"
+                                           Foreground="{DynamicResource Game.DarkGradientBackground}"
+                                           TextWrapping="Wrap">
+                                    Adds 10 seconds to the challenge timer
+                                </TextBlock>
+
+                                <TextBlock FontSize="20"
+                                           FontWeight="SemiBold"
+                                           Foreground="{DynamicResource Game.LightGradientBackground}">
+                                    <Image Source="../../Assets/Game Assets/coin.png"   
+                                           Height="24"
+                                           VerticalAlignment="Center"/>
+                                    30
+                                </TextBlock>
+                            </StackPanel>
+                        </Grid>
+
+                        <!--Fifty-fifty-->
+                        <Grid Margin="0,20">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+
+                            <Image Source="../../Assets/Game Assets/fifty-fifty.png"
+                                   Height="64"
+                                   Grid.Column="0"/>
+
+                            <StackPanel Grid.Column="1"
+                                        Margin="20,0">
+                                <TextBlock Text="FIFTY-FIFTY"
+                                           Foreground="{DynamicResource Game.DarkGradientBackground}"
+                                           FontWeight="SemiBold"/>
+
+                                <TextBlock Margin="0,8"
+                                           Foreground="{DynamicResource Game.DarkGradientBackground}"
+                                           TextWrapping="Wrap">
+                                    Reduces the options by half
+                                </TextBlock>
+
+                                <TextBlock FontSize="20"
+                                           FontWeight="SemiBold"
+                                           Foreground="{DynamicResource Game.LightGradientBackground}">
+                                    <Image Source="../../Assets/Game Assets/coin.png"   
+                                           Height="24"
+                                           VerticalAlignment="Center"/>
+                                    30
+                                </TextBlock>
+                            </StackPanel>
+                        </Grid>
+
+                        <!--Skip challenge-->
+                        <Grid Margin="0,20">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+
+                            <Image Source="../../Assets/Game Assets/skip question.png"
+                                   Height="64"
+                                   Grid.Column="0"/>
+
+                            <StackPanel Grid.Column="1"
+                                        Margin="20,0">
+                                <TextBlock Text="SKIP CHALLENGE"
+                                           Foreground="{DynamicResource Game.DarkGradientBackground}"
+                                           FontWeight="SemiBold"/>
+
+                                <TextBlock Margin="0,8"
+                                           Foreground="{DynamicResource Game.DarkGradientBackground}"
+                                           TextWrapping="Wrap">
+                                    Skip the current challenge
+                                </TextBlock>
+
+                                <TextBlock FontSize="20"
+                                           FontWeight="SemiBold"
+                                           Foreground="{DynamicResource Game.LightGradientBackground}">
+                                    <Image Source="../../Assets/Game Assets/coin.png"   
+                                           Height="24"
+                                           VerticalAlignment="Center"/>
+                                    90
+                                </TextBlock>
+                            </StackPanel>
+                        </Grid>
+
+                    </StackPanel>
+                </ScrollViewer>
+
+                <Separator Background="#F4F4F4"
+                           Margin="0"
+                           Grid.Row="0"
+                           VerticalAlignment="Bottom"/>
+
+                
+            </Grid>
+
+            <Border.RenderTransform>
+                <TranslateTransform/>
+            </Border.RenderTransform>
+
+            <Border.Style>
+                <Style TargetType="Border" >
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Visibility}" Value="Visible">
+                            <DataTrigger.EnterActions>
+                                <BeginStoryboard Storyboard="{DynamicResource Animate.SlideInUpDelayedMid}"/>
+                            </DataTrigger.EnterActions>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </Border.Style>
+        </Border>
+
+        <Border Name="SettingsModal"
+                Background="White"
+                CornerRadius="10"
+                ClipToBounds="True"
+                Visibility="Hidden"
+                VerticalAlignment="Center"
+                HorizontalAlignment="Center"
+                Grid.Column="0">
+
+            <Grid Margin="0"
+                  Height="300" 
+                  Width="500">
+
+                <Image Grid.Row="0"
+                       Height="280"
+                       Margin="0,-40,0,10"
+                       Source="../../Assets/Game Assets/big-background.png"
+                       VerticalAlignment="Bottom"/>
+
+                <Grid ClipToBounds="True">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+
+                    <TextBlock Text="Settings"
+                               HorizontalAlignment="Center"
+                               FontSize="20"
+                               FontWeight="SemiBold"
+                               Foreground="{DynamicResource Game.DarkGradientBackground}"
+                               Margin="0,25"/>
+
+                    <Button Grid.Row="0"
+                            Padding="20,10"
+                            Margin="0,0,40,0"
+                            Click="CloseButton_OnClick"
+                            HorizontalAlignment="Right"
+                            VerticalAlignment="Center"
+                            Focusable="False"
+                            Cursor="Hand"
+                            Style="{DynamicResource CloseButton}">
+
+                        <TextBlock FontFamily="{DynamicResource FontAwesome5.FreeSolid}"
+                                   Text="&#xf00d;"
+                                   Style="{DynamicResource CloseButtonText}"/>
+
+                    </Button>
+
+                    <StackPanel Grid.Row="1"
+                                VerticalAlignment="Center">
+
+                        <Button Height="60"
+                                Width="255"
+                                FontSize="20"
+                                FontWeight="Semibold"
+                                HorizontalAlignment="Center"
+                                Margin="0,0,0,20"
+                                Click="NewGameButton_OnClick"
+                                Style="{DynamicResource GameButton}">
+                            RESET GAME
+                        </Button>
+
+
+                    </StackPanel>
+
+
+                </Grid>
+
+            </Grid>
+
+            <Border.RenderTransform>
+                <TranslateTransform/>
+            </Border.RenderTransform>
+
+            <Border.Style>
+                <Style TargetType="Border" >
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Visibility}" Value="Visible">
+                            <DataTrigger.EnterActions>
+                                <BeginStoryboard Storyboard="{DynamicResource Animate.SlideInUpDelayedMid}"/>
+                            </DataTrigger.EnterActions>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </Border.Style>
+
+        </Border>
+    </Grid>
+</Page>

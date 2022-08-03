@@ -1,0 +1,158 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <Storyboard x:Key="Animate.Bounce">
+        <DoubleAnimation Storyboard.TargetProperty="RenderTransform.(TranslateTransform.Y)"
+                         By="-15" Duration="0:0:0.200" AutoReverse="True"/>
+    </Storyboard>
+
+    <Storyboard x:Key="Animate.SlideInLeft">
+        <DoubleAnimation Storyboard.TargetProperty="RenderTransform.(TranslateTransform.X)"
+                         From="100" To="0" Duration="0:0:0.150">
+        </DoubleAnimation>
+    </Storyboard>
+
+    <Storyboard x:Key="Animate.SlideInRight">
+        <DoubleAnimation Storyboard.TargetProperty="RenderTransform.(TranslateTransform.X)"
+                         From="0" To="100" Duration="0:0:0.150">
+        </DoubleAnimation>
+    </Storyboard>
+
+    <Storyboard x:Key="Animate.SlideInLeftDelayedMid">
+        <DoubleAnimation Storyboard.TargetProperty="RenderTransform.(TranslateTransform.X)"
+                         From="100" To="0" Duration="0:0:0.400" BeginTime="-0:0:0.200">
+            <DoubleAnimation.EasingFunction>
+                <QuadraticEase EasingMode="EaseIn"/>
+            </DoubleAnimation.EasingFunction>
+        </DoubleAnimation>
+    </Storyboard>
+
+    <Storyboard x:Key="Animate.SlideInLeftDelayedSlow">
+        <DoubleAnimation Storyboard.TargetProperty="RenderTransform.(TranslateTransform.X)"
+                         From="10" To="0" Duration="0:0:0.150" >
+            <DoubleAnimation.EasingFunction>
+                <QuadraticEase EasingMode="EaseIn"/>
+            </DoubleAnimation.EasingFunction>
+        </DoubleAnimation>
+    </Storyboard>
+
+    <Storyboard x:Key="Animate.SlideInLeftDelayedSemiSlow">
+        <DoubleAnimation Storyboard.TargetProperty="RenderTransform.(TranslateTransform.X)"
+                         From="20" To="0" Duration="0:0:0.200" >
+            <DoubleAnimation.EasingFunction>
+                <QuadraticEase EasingMode="EaseIn"/>
+            </DoubleAnimation.EasingFunction>
+        </DoubleAnimation>
+    </Storyboard>
+
+    <Storyboard x:Key="Animate.Opacity">
+        <DoubleAnimation 
+            Storyboard.TargetProperty="(WrapPanel.Opacity)" 
+            From="0" To="1" Duration="0:0:5" AutoReverse="True"  />
+    </Storyboard>
+
+    <Storyboard x:Key="Animate.SlideInLeftDelayedFast">
+        <DoubleAnimation Storyboard.TargetProperty="RenderTransform.(TranslateTransform.X)"
+                         From="100" To="0" Duration="0:0:0.350" BeginTime="-0:0:0.200">
+            <DoubleAnimation.EasingFunction>
+                <QuadraticEase EasingMode="EaseIn"/>
+            </DoubleAnimation.EasingFunction>
+        </DoubleAnimation>
+    </Storyboard>
+
+    <Storyboard x:Key="Animate.SlideInUp">
+        <DoubleAnimation Storyboard.TargetProperty="RenderTransform.(TranslateTransform.Y)"
+                         From="50" To="0" Duration="0:0:0.150">
+        </DoubleAnimation>
+    </Storyboard>
+
+    <Storyboard x:Key="Animate.SlideInDown">
+        <DoubleAnimation Storyboard.TargetProperty="RenderTransform.(TranslateTransform.Y)"
+                         From="0" To="50" Duration="0:0:0.150">
+        </DoubleAnimation>
+    </Storyboard>
+
+    <Storyboard x:Key="Animate.SlideInUpDelayedMid">
+        <DoubleAnimation Storyboard.TargetProperty="RenderTransform.(TranslateTransform.Y)"
+                         From="50" To="0" Duration="0:0:0.450" BeginTime="-0:0:0.200">
+            <DoubleAnimation.EasingFunction>
+                <QuadraticEase EasingMode="EaseOut"/>
+            </DoubleAnimation.EasingFunction>
+        </DoubleAnimation>
+    </Storyboard>
+
+    <Storyboard x:Key="Animate.SlideInDownDelayedMid" x:Shared="False">
+        <DoubleAnimation Storyboard.TargetProperty="RenderTransform.(TranslateTransform.Y)"
+                         From="0" To="-50" Duration="0:0:0.250" BeginTime="-0:0:0.100">
+            <DoubleAnimation.EasingFunction>
+                <QuadraticEase EasingMode="EaseIn"/>
+            </DoubleAnimation.EasingFunction>
+        </DoubleAnimation>
+    </Storyboard>
+
+    <Storyboard x:Key="Animate.SlideOutDownDelayedMid" x:Shared="False">
+        <DoubleAnimation Storyboard.TargetProperty="RenderTransform.(TranslateTransform.Y)"
+                         From="0" To="50" Duration="0:0:0.250" BeginTime="-0:0:0.100">
+            <DoubleAnimation.EasingFunction>
+                <QuadraticEase EasingMode="EaseIn"/>
+            </DoubleAnimation.EasingFunction>
+        </DoubleAnimation>
+    </Storyboard>
+
+    <Storyboard x:Key="Animate.Rotate">
+        <DoubleAnimation Storyboard.TargetProperty="RenderTransform.(RotateTransform.Angle)"
+            From="0.0" To="360" RepeatBehavior="Forever"/>
+    </Storyboard>
+
+    <Storyboard x:Key="Animate.Bounce.Min">
+        <DoubleAnimation Storyboard.TargetProperty="RenderTransform.(TranslateTransform.Y)"
+                         By="-5" Duration="0:0:0.200" AutoReverse="True"/>
+    </Storyboard>
+
+    <Storyboard x:Key="Animate.Enter.Raise">
+        <DoubleAnimation Storyboard.TargetProperty="RenderTransform.(TranslateTransform.Y)"
+                         By="-5" Duration="0:0:0.200"/>
+    </Storyboard>
+
+    <Storyboard x:Key="Animate.Leave.Raise">
+        <DoubleAnimation Storyboard.TargetProperty="RenderTransform.(TranslateTransform.Y)"
+                         By="5" Duration="0:0:0.200"/>
+    </Storyboard>
+
+    <Storyboard x:Key="GlowOn">
+        <DoubleAnimationUsingKeyFrames BeginTime="00:00:00" 
+                                       Storyboard.TargetProperty="(Effect).BlurRadius">
+            <SplineDoubleKeyFrame KeyTime="0:0:0.150" Value="16"/>
+        </DoubleAnimationUsingKeyFrames>
+        <DoubleAnimationUsingKeyFrames BeginTime="00:00:00" 
+                                       Storyboard.TargetProperty="(Effect).Opacity">
+            <SplineDoubleKeyFrame KeyTime="0:0:0.150" Value="0.3"/>
+        </DoubleAnimationUsingKeyFrames>
+    </Storyboard>
+
+    <Storyboard x:Key="GlowOff">
+        <DoubleAnimationUsingKeyFrames BeginTime="00:00:00" 
+                                       Storyboard.TargetProperty="(Effect).BlurRadius">
+            <SplineDoubleKeyFrame KeyTime="0:0:0.150" Value="7"/>
+        </DoubleAnimationUsingKeyFrames>
+        <DoubleAnimationUsingKeyFrames BeginTime="00:00:00" 
+                                       Storyboard.TargetProperty="(Effect).Opacity">
+            <SplineDoubleKeyFrame KeyTime="0:0:0.150" Value="0"/>
+        </DoubleAnimationUsingKeyFrames>
+    </Storyboard>
+
+    <Storyboard x:Key="BorderColorOn">
+        <ColorAnimation Storyboard.TargetProperty="BorderBrush.Color" 
+                        Duration="00:00:0.150" 
+                        From="Transparent"
+                        To="#C2A7CAF1"/>
+    </Storyboard>
+
+    <Storyboard x:Key="BorderColorOff">
+        <ColorAnimation Storyboard.TargetProperty="BorderBrush.Color" 
+                        Duration="00:00:0.01" 
+                        From="#C2A7CAF1"
+                        To="Transparent"/>
+    </Storyboard>
+
+</ResourceDictionary>

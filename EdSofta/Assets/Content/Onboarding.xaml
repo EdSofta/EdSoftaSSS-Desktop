@@ -1,0 +1,32 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:sys="clr-namespace:System;assembly=mscorlib">
+
+    <sys:String x:Key="WelcomeMessage">
+        EdSofta provides the best way to prepare for your exam with materials you need readily available.
+    </sys:String>
+
+    <sys:String x:Key="Slide1.Header">
+        Get practice materials
+    </sys:String>
+
+    <sys:String x:Key="Slide1.Body">
+        A wide collection of past questions and study materials spanning many years
+    </sys:String>
+
+    <sys:String x:Key="Slide2.Header">
+        Recommendations
+    </sys:String>
+
+    <sys:String x:Key="Slide2.Body">
+        Dont’t know what to study? We also provide you with recommendations
+    </sys:String>
+
+    <sys:String x:Key="Slide3.Header">
+        Ask questions
+    </sys:String>
+
+    <sys:String x:Key="Slide3.Body">
+        Join our forums to get answers on questions about subjects
+    </sys:String>
+</ResourceDictionary>

@@ -1,0 +1,277 @@
+﻿<Page x:Class="EdSofta.Views.Pages.PracticeOnboardPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:EdSofta.Views.Pages"
+      mc:Ignorable="d" 
+      Tag="Home"
+      d:DesignHeight="800" d:DesignWidth="1000"
+      FontFamily="{DynamicResource Mulish}"
+      FontSize="15"
+      Background="{DynamicResource LayoutBackground}"
+      Title="PracticeOnboardPage">
+
+    <Grid UseLayoutRounding="True"
+          Name="ContainerGrid">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="4*"/>
+            <ColumnDefinition Width="3*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <Grid Margin="0,40,0,10"
+              Grid.Row="0"
+              Grid.ColumnSpan="2"
+              Grid.Column="0"
+              Name="PageHeaderContainer">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="4*"/>
+                <ColumnDefinition Width="3*"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid Grid.Column="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="10*"/>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
+
+                <TextBlock Grid.Column="1"
+                           Style="{DynamicResource Heading.Large.Regular}"
+                           Foreground="{DynamicResource ContentText}">
+                    Practice Exam
+                </TextBlock>
+            </Grid>
+        </Grid>
+
+        <Separator Background="{DynamicResource LayoutAccent}"
+                   Margin="0"
+                   Grid.Row="0"
+                   Grid.Column="0"
+                   Grid.ColumnSpan="2"
+                   VerticalAlignment="Bottom">
+
+            <Separator.Style>
+                <Style TargetType="Separator">
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding ElementName=ContentScrollViewer, Path=VerticalOffset}" Value="0">
+                            <Setter Property="Visibility" Value="Hidden"/>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </Separator.Style>
+        </Separator>
+
+
+        <ScrollViewer Grid.Column="0"
+                      Grid.Row="1"
+                      Grid.ColumnSpan="2"
+                      CanContentScroll="False"
+                      Margin="0,0,0,20"
+                      Name="ContentScrollViewer"
+                      Style="{DynamicResource ScrollViewerStyle}">
+            <Grid Name="ContentGrid">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="4*"/>
+                    <ColumnDefinition Width="3*"/>
+                </Grid.ColumnDefinitions>
+
+                <Grid Grid.Column="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="10*"/>
+                        <ColumnDefinition Width="1*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <StackPanel Grid.Column="1"
+                                Margin="0,25">
+
+                        <Image Source="../../Assets/Images/practice.png"
+                               Height="80"
+                               Margin="0,40,0,0"/>
+
+
+                        <TextBlock Style="{DynamicResource Heading.Medium.SemiBold}"
+                                   Text="{Binding RecHeader}"
+                                   Foreground="{DynamicResource ContentText}"
+                                   Margin="0,20,0,10"/>
+
+                        <TextBlock Style="{DynamicResource Body.Medium.Regular}"
+                                   Foreground="{DynamicResource ContentText}"
+                                   Text="{Binding RecText}"
+                                   TextWrapping="Wrap">
+                           
+                        </TextBlock>
+
+                        <Grid Margin="0,40,0,0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+
+                            <Grid Grid.Column="0"
+                                  VerticalAlignment="Top">
+                                <Ellipse x:Name="background"
+                                                             Height="40"
+                                                             Width="40"
+                                                             Fill="{DynamicResource ItemCircleBackground}"/>
+
+                                <Canvas Grid.Row="0"
+                                                            Width="24"
+                                                            Height="24"
+                                                            Grid.Column="0">
+                                    <Canvas.RenderTransform>
+                                        <TranslateTransform X="0" Y="0"/>
+                                    </Canvas.RenderTransform>
+                                    <Canvas.Resources/>
+                                    <Path Data="{StaticResource Icons.Collection}"
+                                                              StrokeThickness="2" StrokeEndLineCap="Round"
+                                                              Stroke="{DynamicResource ItemCircleForeground}"/>
+                                </Canvas>
+                            </Grid>
+
+                            <Grid Grid.Column="1"
+                                                      Margin="10,0,0,0">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                </Grid.RowDefinitions>
+
+                                <TextBlock Text="{Binding SubjectHeader}"
+                                           Grid.Row="0"
+                                           Style="{DynamicResource Body.Medium.SemiBold}"
+                                           Foreground="{DynamicResource ContentText}"/>
+
+                                <TextBlock Text="{Binding SubjectBody}"
+                                           Grid.Row="1"
+                                           Margin="0,5,0,0"
+                                           TextWrapping="Wrap"
+                                           Foreground="{DynamicResource ContentText}"
+                                           Style="{DynamicResource Body.Small.Regular}"/>
+                            </Grid>
+                        </Grid>
+
+                        <Grid Margin="0,40,0,0"
+                              Visibility="Collapsed">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+
+                            <Grid Grid.Column="0"
+                                  VerticalAlignment="Top">
+                                <Ellipse Height="40"
+                                         Width="40"
+                                         Fill="{DynamicResource ItemCircleBackground}"/>
+
+                                <Canvas Grid.Row="0"
+                                        Width="24"
+                                        Height="24"
+                                        Grid.Column="0">
+                                    <Canvas.RenderTransform>
+                                        <TranslateTransform X="0" Y="0"/>
+                                    </Canvas.RenderTransform>
+                                    <Canvas.Resources/>
+                                    <Path Data="{StaticResource Icons.Clock}"
+                                                              StrokeThickness="2" StrokeEndLineCap="Round"
+                                                              Stroke="{DynamicResource ItemCircleForeground}"/>
+                                </Canvas>
+                            </Grid>
+
+                            <Grid Grid.Column="1"
+                                                      Margin="10,0,0,0">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                </Grid.RowDefinitions>
+
+                                <TextBlock Text="4 subjects and 1 topic"
+                                           Grid.Row="0"
+                                           Style="{DynamicResource Body.Medium.SemiBold}"
+                                           Foreground="{DynamicResource ContentText}"/>
+
+                                <TextBlock Text="English, Mathematics, Physics and Chemistry."
+                                           Grid.Row="1"
+                                           Margin="0,5,0,0"
+                                           TextWrapping="Wrap"
+                                           Foreground="{DynamicResource ContentText}"
+                                           Style="{DynamicResource Body.Small.Regular}"/>
+                            </Grid>
+                        </Grid>
+
+                        <Button Style="{DynamicResource ThemeButton}"
+                                HorizontalAlignment="Right"
+                                Height="40"
+                                Click="StartButton_OnClick"
+                                Padding="40,0"
+                                Margin="0,50,0,0"> 
+                            <TextBlock Style="{DynamicResource Body.Medium.SemiBold}"
+                                       Text="Start Test"/>
+                        </Button>
+                    </StackPanel>
+                </Grid>
+
+                <Grid.RenderTransform>
+                    <TranslateTransform/>
+                </Grid.RenderTransform>
+
+                <Grid.Style>
+                    <Style TargetType="Grid" >
+                        <Style.Triggers>
+                            <EventTrigger RoutedEvent="Loaded">
+                                <BeginStoryboard Storyboard="{DynamicResource Animate.SlideInUpDelayedMid}"/>
+                            </EventTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </Grid.Style>
+            </Grid>
+        </ScrollViewer>
+
+        <Grid Grid.Column="1"
+              Grid.Row="1"
+              Name="SideGrid">
+            <Grid.ColumnDefinitions>
+                <!--<ColumnDefinition Width="1*"/>-->
+                <ColumnDefinition Width="10*"/>
+                <ColumnDefinition Width="3*"/>
+            </Grid.ColumnDefinitions>
+
+
+            <Grid.RenderTransform>
+                <TranslateTransform/>
+            </Grid.RenderTransform>
+
+            <Grid.Style>
+                <Style TargetType="Grid" >
+                    <Style.Triggers>
+                        <EventTrigger RoutedEvent="Loaded">
+                            <BeginStoryboard Storyboard="{DynamicResource Animate.SlideInUpDelayedMid}"/>
+                        </EventTrigger>
+                    </Style.Triggers>
+                </Style>
+            </Grid.Style>
+        </Grid>
+
+        <Grid.RenderTransform>
+            <TranslateTransform/>
+        </Grid.RenderTransform>
+        <!--<Grid.RenderTransform>
+            <TranslateTransform/>
+        </Grid.RenderTransform>
+
+        <Grid.Style>
+            <Style TargetType="Grid" >
+                <Style.Triggers>
+                    <EventTrigger RoutedEvent="Loaded">
+                        <BeginStoryboard Storyboard="{DynamicResource Animate.SlideInUp}"/>
+                    </EventTrigger>
+                </Style.Triggers>
+            </Style>
+        </Grid.Style>-->
+    </Grid>
+</Page>

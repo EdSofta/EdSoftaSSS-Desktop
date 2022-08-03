@@ -1,0 +1,9 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <SolidColorBrush x:Key="LayoutBackground" Color="#24292E"/>
+    <SolidColorBrush x:Key="LayoutAccent" Color="#494D52"/>
+    <SolidColorBrush x:Key="ContentText" Color="#FFFFFF"/>
+    <SolidColorBrush x:Key="ContentText[Secondary]" Color="#FFFFFF"/>
+
+</ResourceDictionary>

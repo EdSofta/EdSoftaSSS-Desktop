@@ -1,0 +1,143 @@
+﻿<Page x:Class="EdSofta.Views.Pages.TutorPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:EdSofta.Views.Pages"
+      mc:Ignorable="d" 
+      Tag="Home"
+      d:DesignHeight="800" d:DesignWidth="1000"
+      FontFamily="{DynamicResource Mulish}"
+      FontSize="15"
+      Background="{DynamicResource LayoutBackground}"
+      Title="TutorPage">
+
+    <Grid UseLayoutRounding="True"
+          Name="ContainerGrid">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="4*"/>
+            <ColumnDefinition Width="3*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <Grid Margin="0,40,0,10"
+              Grid.Row="0"
+              Grid.ColumnSpan="2"
+              Grid.Column="0"
+              Name="PageHeaderContainer">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="4*"/>
+                <ColumnDefinition Width="3*"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid Grid.Column="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="10*"/>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
+
+                <TextBlock Grid.Column="1"
+                           Style="{DynamicResource Heading.Large.Regular}"
+                           Foreground="{DynamicResource ContentText}">
+                    Hire a Tutor
+                </TextBlock>
+            </Grid>
+        </Grid>
+
+        <Separator Background="{DynamicResource LayoutAccent}"
+                   Margin="0"
+                   Grid.Row="0"
+                   Grid.Column="0"
+                   Grid.ColumnSpan="2"
+                   VerticalAlignment="Bottom">
+
+            <Separator.Style>
+                <Style TargetType="Separator">
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding ElementName=ContentScrollViewer, Path=VerticalOffset}" Value="0">
+                            <Setter Property="Visibility" Value="Hidden"/>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </Separator.Style>
+        </Separator>
+
+        <ScrollViewer Grid.Column="0"
+                      Grid.Row="1"
+                      Grid.ColumnSpan="2"
+                      CanContentScroll="False"
+                      Margin="0,0,0,20"
+                      Name="ContentScrollViewer"
+                      Style="{DynamicResource ScrollViewerStyle}">
+            <Grid Name="ContentGrid">
+
+                <TextBlock Foreground="{DynamicResource ThemeGrey}"
+                           Style="{DynamicResource Heading.Medium.SemiBold}"
+                           Text="Coming soon"
+                           VerticalAlignment="Center"
+                           HorizontalAlignment="Center"/>
+
+                <Grid.RenderTransform>
+                    <TranslateTransform/>
+                </Grid.RenderTransform>
+
+                <Grid.Style>
+                    <Style TargetType="Grid" >
+                        <Style.Triggers>
+                            <EventTrigger RoutedEvent="Loaded">
+                                <BeginStoryboard Storyboard="{DynamicResource Animate.SlideInUpDelayedMid}"/>
+                            </EventTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </Grid.Style>
+            </Grid>
+        </ScrollViewer>
+
+        <Grid Grid.Column="1"
+              Grid.Row="1"
+              Name="SideGrid">
+            <Grid.ColumnDefinitions>
+                <!--<ColumnDefinition Width="1*"/>-->
+                <ColumnDefinition Width="10*"/>
+                <ColumnDefinition Width="3*"/>
+            </Grid.ColumnDefinitions>
+
+
+            <Grid.RenderTransform>
+                <TranslateTransform/>
+            </Grid.RenderTransform>
+
+            <Grid.Style>
+                <Style TargetType="Grid" >
+                    <Style.Triggers>
+                        <EventTrigger RoutedEvent="Loaded">
+                            <BeginStoryboard Storyboard="{DynamicResource Animate.SlideInUpDelayedMid}"/>
+                        </EventTrigger>
+                    </Style.Triggers>
+                </Style>
+            </Grid.Style>
+        </Grid>
+
+        <Grid.RenderTransform>
+            <TranslateTransform/>
+        </Grid.RenderTransform>
+        <!--<Grid.RenderTransform>
+            <TranslateTransform/>
+        </Grid.RenderTransform>
+
+        <Grid.Style>
+            <Style TargetType="Grid" >
+                <Style.Triggers>
+                    <EventTrigger RoutedEvent="Loaded">
+                        <BeginStoryboard Storyboard="{DynamicResource Animate.SlideInUp}"/>
+                    </EventTrigger>
+                </Style.Triggers>
+            </Style>
+        </Grid.Style>-->
+    </Grid>
+</Page>

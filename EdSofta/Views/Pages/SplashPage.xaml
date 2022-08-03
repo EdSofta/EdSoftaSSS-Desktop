@@ -1,0 +1,43 @@
+﻿<Page x:Class="EdSofta.Views.Pages.SplashPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:EdSofta.Views.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="700" d:DesignWidth="1000"
+      Background="White"
+      Title="SplashPage">
+
+    <Grid UseLayoutRounding="True">
+        <Grid>
+            <Image Source="../../Assets/Images/center-image.png"
+                   Height="260"/>
+        </Grid>
+
+        <StackPanel Name="SetupPanel"
+                    Visibility="Hidden"
+                    VerticalAlignment="Bottom"
+                    Margin="0,0,0,150">
+            <TextBlock Style="{DynamicResource Body.Medium.SemiBold}"
+                       Text="Setting up your app. This might take a few minutes"
+                       Foreground="Black"
+                       HorizontalAlignment="Center"
+                       Margin="0,0,0,20"/>
+
+            <ProgressBar Width="300"
+                         HorizontalAlignment="Center"
+                         Height="10"
+                         IsIndeterminate="True"
+                         Style="{DynamicResource ShortProgressBarStyle}"
+                         Name="UpdateProgressBar"
+                         Minimum="0"
+                         Maximum="100"/>
+        </StackPanel>
+
+        <Image Source="../../Assets/Images/bottom-image.png"
+               Height="230"
+               VerticalAlignment="Bottom"
+               Margin="0,0,0,-30"/>
+    </Grid>
+</Page>

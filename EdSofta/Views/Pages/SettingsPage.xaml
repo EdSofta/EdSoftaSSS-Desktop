@@ -1,0 +1,571 @@
+﻿<Page x:Class="EdSofta.Views.Pages.SettingsPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:EdSofta.Views.Pages"
+      mc:Ignorable="d"
+      Tag="Settings"
+      Name="Settings"
+      FontSize="15"
+      FontFamily="{DynamicResource Mulish}"
+      d:DesignHeight="2000" d:DesignWidth="1000"
+      Background="{DynamicResource LayoutBackground}"
+      Title="SettingsPage">
+
+    <Grid UseLayoutRounding="True"
+          Name="ContainerGrid">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="4*"/>
+            <ColumnDefinition Width="3*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <Grid Margin="0,40,0,10"
+              Grid.Row="0"
+              Grid.ColumnSpan="2"
+              Grid.Column="0"
+              Name="PageHeaderContainer">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="4*"/>
+                <ColumnDefinition Width="3*"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid Grid.Column="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="10*"/>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
+
+                <TextBlock Grid.Column="1"
+                           Style="{DynamicResource Heading.Large.Regular}"
+                           Foreground="{DynamicResource ContentText}">
+                    Settings
+                </TextBlock>
+            </Grid>
+        </Grid>
+
+        <Separator Background="{DynamicResource LayoutAccent}"
+                   Margin="0"
+                   Grid.Row="0"
+                   Grid.Column="0"
+                   Grid.ColumnSpan="2"
+                   VerticalAlignment="Bottom">
+
+            <Separator.Style>
+                <Style TargetType="Separator">
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding ElementName=ContentScrollViewer, Path=VerticalOffset}" Value="0">
+                            <Setter Property="Visibility" Value="Hidden"/>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </Separator.Style>
+        </Separator>
+
+        <ScrollViewer Grid.Column="0"
+                      Grid.Row="1"
+                      Grid.ColumnSpan="2"
+                      CanContentScroll="False"
+                      Margin="0,0,0,20"
+                      Name="ContentScrollViewer"
+                      Style="{DynamicResource ScrollViewerStyle}">
+            <Grid Name="ContentGrid">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="4*"/>
+                    <ColumnDefinition Width="3*"/>
+                </Grid.ColumnDefinitions>
+
+                <Grid Grid.Column="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="10*"/>
+                        <ColumnDefinition Width="1*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <StackPanel Margin="0,35"
+                                Grid.Column="1">
+
+                        <!--Notification-->
+
+                        <TextBlock Style="{DynamicResource Heading.Medium.SemiBold}"
+                                   Text="Notifications"
+                                   Foreground="{DynamicResource ContentText}"/>
+
+                        <Border CornerRadius="10"
+                                Margin="0,20"
+                                Background="{DynamicResource LayoutAccent}">
+                            <Grid Margin="30,20">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+
+                                <TextBlock Style="{DynamicResource Body.Medium.SemiBold}"
+                                           Text="Allow push notifications"
+                                           Foreground="{DynamicResource ContentText}"
+                                           Grid.Row="0"/>
+
+                                <ToggleButton Height="25"
+                                              HorizontalAlignment="Left"
+                                              Grid.Row="1"
+                                              IsChecked="{Binding AllowNotifications, Mode=OneWay}"
+                                              Click="ButtonBase_OnClick"
+                                              Margin="0,20,0,0">
+
+
+                                </ToggleButton>
+                            </Grid>
+                        </Border>
+
+                        <!--Notification-->
+
+
+                        <!--General-->
+
+                        <TextBlock Style="{DynamicResource Heading.Medium.SemiBold}"
+                                   Text="General"
+                                   Foreground="{DynamicResource ContentText}"
+                                   Margin="0,50,0,20"/>
+
+                        <Border CornerRadius="10"
+                                Background="{DynamicResource LayoutAccent}">
+                            <Grid Margin="30,20">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+
+                                <TextBlock Style="{DynamicResource Body.Medium.SemiBold}"
+                                           Text="Theme"
+                                           Foreground="{DynamicResource ContentText}"
+                                           Grid.Row="0"/>
+
+                                <!--<ToggleButton Height="25"
+                                              HorizontalAlignment="Left"
+                                              Grid.Row="1"
+                                              IsChecked="False"
+                                              Click="ButtonBase_OnClick"
+                                              Margin="0,20,0,0"/>-->
+
+                                <ListView Style="{DynamicResource ListViewStyle}"
+                                          HorizontalContentAlignment="Left"
+                                          Grid.Row="1"
+                                          Margin="0,20,0,0"
+                                          Background="Transparent"
+                                          Focusable="False"
+                                          ItemsSource="{Binding ThemeOptions.Result}"
+                                          PreviewMouseWheel="HandlePreviewMouseWheel"
+                                          BorderThickness="0"
+                                          ScrollViewer.CanContentScroll="False"
+                                          ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+
+                                    <ListView.Resources>
+                                        <Style TargetType="ListViewItem">
+                                            <Setter Property="Margin" Value="0"/>
+                                            <Setter Property="Padding" Value="0"/>
+                                            <Setter Property="Focusable" Value="False"/>
+                                            <Setter Property="Template">
+                                                <Setter.Value>
+                                                    <ControlTemplate TargetType="ListViewItem">
+                                                        <Grid Margin="0,10">
+                                                            <RadioButton GroupName="ThemeOptionsButton"
+                                                                         Margin="7,0,0,0"
+                                                                         PreviewMouseDown="ThemeRadioButton_PreviewMouseDown"
+                                                                         Content="{Binding Text}"
+                                                                         IsChecked="{Binding IsSelected, Mode=TwoWay}"
+                                                                         Style="{DynamicResource TelegramRadioButton}"
+                                                                         VerticalContentAlignment="Center">
+
+                                                            </RadioButton>
+                                                        </Grid>
+                                                    </ControlTemplate>
+                                                </Setter.Value>
+                                            </Setter>
+                                        </Style>
+                                    </ListView.Resources>
+
+                                </ListView>
+                            </Grid>
+                        </Border>
+
+                        <Border CornerRadius="10"
+                                Margin="0,5"
+                                Name="ManageUsersBorder"
+                                MouseDown="ManageUsersBorder_OnMouseDown"
+                                Background="{DynamicResource LayoutAccent}">
+                            <Grid Margin="30,15">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition />
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+
+                                <TextBlock Style="{DynamicResource Link.Medium.SemiBold}"
+                                           Text="Manage users"
+                                           Foreground="{DynamicResource ContentText}"
+                                           VerticalAlignment="Center"
+                                           Grid.Row="0"/>
+
+                                <Canvas Grid.Row="0"
+                                        Width="24"
+                                        Height="24"
+                                        Grid.Column="1">
+                                    <Canvas.RenderTransform>
+                                        <TranslateTransform X="0" Y="0"/>
+                                    </Canvas.RenderTransform>
+                                    <Canvas.Resources/>
+                                    <Path Data="{StaticResource Icons.Chevron-Right}"
+                                          StrokeThickness="2" StrokeEndLineCap="Round"
+                                          Stroke="{DynamicResource ContentText}"/>
+                                </Canvas>
+
+                            </Grid>
+                        </Border>
+
+                        <Border CornerRadius="10"
+                                Background="{DynamicResource LayoutAccent}">
+                            <Grid Margin="30,20">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+
+                                <TextBlock Style="{DynamicResource Body.Medium.SemiBold}"
+                                           Text="Content updates"
+                                           Foreground="{DynamicResource ContentText}"
+                                           Grid.Row="0"/>
+
+                               <Button Style="{DynamicResource ThemeButton}"
+                                       Height="40"
+                                       HorizontalAlignment="Left"
+                                       Grid.Row="1"
+                                       Name="ContentUpdateButton"
+                                       Click="ContentUpdateButton_OnClick"
+                                       Margin="0,20,0,0"
+                                       Padding="40,0">
+                                   Check for content updates
+                               </Button>
+                            </Grid>
+                        </Border>
+
+                        <!--General-->
+
+                        <!--About-->
+
+                        <TextBlock Style="{DynamicResource Heading.Medium.SemiBold}"
+                                   Text="About"
+                                   Foreground="{DynamicResource ContentText}"
+                                   Margin="0,70,0,20"/>
+
+                        <Border CornerRadius="10"
+                                Background="{DynamicResource LayoutAccent}">
+                            <Grid Margin="30,20">
+
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+
+                                <Button Style="{DynamicResource RoundNeutralItemButtonStyle}"
+                                        Height="40"
+                                        Width="40"
+                                        Grid.Column="1"
+                                        Grid.Row="0"
+                                        Grid.RowSpan="3"
+                                        Cursor="Hand"
+                                        Name="AccountLinkButton"
+                                        Click="AccountLinkButton_OnClick"
+                                        VerticalAlignment="Center"
+                                        HorizontalAlignment="Center">
+
+                                    <Canvas Width="24"
+                                            Height="24">
+                                        <Canvas.RenderTransform>
+                                            <TranslateTransform X="0" Y="0"/>
+                                        </Canvas.RenderTransform>
+                                        <Canvas.Resources/>
+                                        <Path Data="{StaticResource Icons.External-Link}"
+                                              StrokeThickness="2" StrokeEndLineCap="Round"
+                                              Stroke="{DynamicResource ContentText}"/>
+                                    </Canvas>
+                                </Button>
+
+                                <Grid Grid.Row="0"
+                                      Grid.Column="0">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition Width="Auto"/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <TextBlock Style="{DynamicResource Body.Medium.SemiBold}"
+                                               Text="Account"
+                                               Foreground="{DynamicResource ContentText}"
+                                               Grid.Row="0"/>
+
+                                </Grid>
+
+                               <StackPanel Orientation="Horizontal"
+                                           Grid.Column="0"
+                                           Grid.Row="1">
+                                   <TextBlock Style="{DynamicResource Body.Small.SemiBold}"
+                                              Margin="0,15,0,0"
+                                              Foreground="{DynamicResource ContentText}"
+                                              Text="{Binding Owner.Result.LastName}"/>
+
+                                   <TextBlock Style="{DynamicResource Body.Small.SemiBold}"
+                                              Margin="5,15,0,0"
+                                              Foreground="{DynamicResource ContentText}"
+                                              Text="{Binding Owner.Result.FirstName}"/>
+                               </StackPanel>
+
+                                <TextBlock Style="{DynamicResource Body.Small.SemiBold}"
+                                           Grid.Row="2"
+                                           Grid.Column="0"
+                                           Margin="0,5,0,0"
+                                           Foreground="{DynamicResource ContentText}"
+                                           Text="{Binding Owner.Result.Email}"/>
+                            </Grid>
+                        </Border>
+
+                        <Border CornerRadius="10"
+                                Margin="0,5"
+                                Background="{DynamicResource LayoutAccent}">
+                            <Grid Margin="30,20">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition Width="Auto"/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <TextBlock Style="{DynamicResource Body.Medium.SemiBold}"
+                                               Text="Device"
+                                               Foreground="{DynamicResource ContentText}"
+                                               Grid.Row="0"/>
+
+                                   
+                                </Grid>
+
+                                <TextBlock Style="{DynamicResource Body.Small.SemiBold}"
+                                           Grid.Row="1"
+                                           Margin="0,15,0,0"
+                                           Foreground="{DynamicResource ContentText}"
+                                           Text="{Binding ProductID}"/>
+
+                                <TextBlock Style="{DynamicResource Body.Small.SemiBold}"
+                                           Grid.Row="2"
+                                           Margin="0,5,0,0"
+                                           Foreground="{DynamicResource ContentText}"
+                                           Text="{Binding AppVersion}"/>
+                            </Grid>
+                        </Border>
+
+                        <!--About-->
+
+                        <!--Legal-->
+
+                        <TextBlock Style="{DynamicResource Heading.Medium.SemiBold}"
+                                   Text="Legal"
+                                   Foreground="{DynamicResource ContentText}"
+                                   Margin="0,70,0,20"/>
+
+                        <Border CornerRadius="10"
+                                Name="LicensesBorder"
+                                MouseDown="LicensesBorder_OnMouseDown"
+                                Background="{DynamicResource LayoutAccent}">
+                            <Grid Margin="30,15">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition />
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+
+                                <TextBlock Style="{DynamicResource Link.Medium.SemiBold}"
+                                           Text="Open Source Licenses"
+                                           VerticalAlignment="Center"
+                                           Foreground="{DynamicResource ContentText}"
+                                           Grid.Row="0"/>
+
+                                <Canvas Grid.Row="0"
+                                        Width="24"
+                                        Height="24"
+                                        Grid.Column="1">
+                                    <Canvas.RenderTransform>
+                                        <TranslateTransform X="0" Y="0"/>
+                                    </Canvas.RenderTransform>
+                                    <Canvas.Resources/>
+                                    <Path Data="{StaticResource Icons.Chevron-Right}"
+                                          StrokeThickness="2" StrokeEndLineCap="Round"
+                                          Stroke="{DynamicResource ContentText}"/>
+                                </Canvas>
+
+                            </Grid>
+                        </Border>
+
+                        <Border CornerRadius="10"
+                                Margin="0,5"
+                                Name="TermsPrivacyBorder"
+                                MouseDown="TermsPrivacyBorder_OnMouseDown"
+                                Background="{DynamicResource LayoutAccent}">
+                            <Grid Margin="30,15">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition />
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+
+                                <TextBlock Style="{DynamicResource Link.Medium.SemiBold}"
+                                           Text="Terms of use and privacy"
+                                           Foreground="{DynamicResource ContentText}"
+                                           VerticalAlignment="Center"
+                                           Grid.Row="0"/>
+
+                                <Button Style="{DynamicResource RoundNeutralItemButtonStyle}"
+                                        Height="30"
+                                        Width="30"
+                                        Grid.Column="1"
+                                        Cursor="Hand"
+                                        VerticalAlignment="Center"
+                                        HorizontalAlignment="Center">
+
+                                    <Canvas Width="24"
+                                            Height="24">
+                                        <Canvas.RenderTransform>
+                                            <TranslateTransform X="0" Y="0"/>
+                                        </Canvas.RenderTransform>
+                                        <Canvas.Resources/>
+                                        <Path Data="{StaticResource Icons.External-Link}"
+                                              StrokeThickness="2" StrokeEndLineCap="Round"
+                                              Stroke="{DynamicResource ContentText}"/>
+                                    </Canvas>
+                                </Button>
+
+
+                            </Grid>
+                        </Border>
+
+                        <!--Legal-->
+
+                    </StackPanel>
+
+                </Grid>
+
+                <Grid.RenderTransform>
+                    <TranslateTransform/>
+                </Grid.RenderTransform>
+
+                <Grid.Style>
+                    <Style TargetType="Grid" >
+                        <Style.Triggers>
+                            <EventTrigger RoutedEvent="Loaded">
+                                <BeginStoryboard Storyboard="{DynamicResource Animate.SlideInUpDelayedMid}"/>
+                            </EventTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </Grid.Style>
+            </Grid>
+        </ScrollViewer>
+
+        <Grid Grid.Column="1"
+              Grid.Row="1"
+              Name="SideGrid">
+            <Grid.ColumnDefinitions>
+                <!--<ColumnDefinition Width="1*"/>-->
+                <ColumnDefinition Width="10*"/>
+                <ColumnDefinition Width="3*"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <Button Height="40"
+                    Grid.Column="0"
+                    Grid.Row="0"
+                    Style="{DynamicResource ThemeButton}"
+                    VerticalAlignment="Top"
+                    Name="AppUpdateButton"
+                    Click="AppUpdateButton_OnClick"
+                    Padding="35,0"
+                    Margin="0,20">
+
+                <TextBlock Text="Check for app updates"
+                           Style="{DynamicResource Body.Medium.SemiBold}"/>
+
+            </Button>
+
+            <Button Height="46"
+                    Grid.Column="0"
+                    Grid.Row="1"
+                    Style="{DynamicResource NeutralItemButtonStyle}"
+                    VerticalAlignment="Top"
+                    Name="SetUpdateButton"
+                    Click="SetUpdateButton_OnClick"
+                    Padding="35,0"
+                    Margin="0,0">
+
+                <TextBlock Text="Configure update settings"
+                           VerticalAlignment="Center"
+                           HorizontalAlignment="Center"
+                           Style="{DynamicResource Body.Medium.SemiBold}"/>
+
+            </Button>
+
+
+            <TextBlock Grid.Row="2"
+                       Grid.Column="0"
+                       TextWrapping="Wrap"
+                       Foreground="{DynamicResource ContentText}"
+                       Style="{DynamicResource Body.Medium.Regular}"
+                       Text=""/>
+
+
+            <Grid.RenderTransform>
+                <TranslateTransform/>
+            </Grid.RenderTransform>
+
+            <Grid.Style>
+                <Style TargetType="Grid" >
+                    <Style.Triggers>
+                        <EventTrigger RoutedEvent="Loaded">
+                            <BeginStoryboard Storyboard="{DynamicResource Animate.SlideInUpDelayedMid}"/>
+                        </EventTrigger>
+                    </Style.Triggers>
+                </Style>
+            </Grid.Style>
+        </Grid>
+
+        <Grid.RenderTransform>
+            <TranslateTransform/>
+        </Grid.RenderTransform>
+        <!--<Grid.RenderTransform>
+            <TranslateTransform/>
+        </Grid.RenderTransform>
+
+        <Grid.Style>
+            <Style TargetType="Grid" >
+                <Style.Triggers>
+                    <EventTrigger RoutedEvent="Loaded">
+                        <BeginStoryboard Storyboard="{DynamicResource Animate.SlideInUp}"/>
+                    </EventTrigger>
+                </Style.Triggers>
+            </Style>
+        </Grid.Style>-->
+        </Grid>
+</Page>

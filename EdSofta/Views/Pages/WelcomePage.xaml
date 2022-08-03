@@ -1,0 +1,117 @@
+﻿<Page x:Class="EdSofta.Views.Pages.WelcomePage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:EdSofta.Views.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="700" d:DesignWidth="1000"
+      Title="WelcomePage">
+    <Page.Background>
+        <LinearGradientBrush StartPoint="-12.5,30.0" EndPoint="0.65,1" Opacity="0.8">
+            <GradientStop Color="#CC000000" Offset="0.09"/>
+            <GradientStop Color="#0366D6" Offset="0.89"/>
+        </LinearGradientBrush>
+        <!--<SolidColorBrush Color="#0366D6"/>-->
+    </Page.Background>
+
+    <Grid UseLayoutRounding="True">
+
+        <Image Source="../../Assets/Images/bottom-image.png"
+               Height="230"
+               VerticalAlignment="Bottom"
+               Margin="0,0,0,-30"/>
+
+        <Grid VerticalAlignment="Center">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="4*"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <TextBlock Style="{DynamicResource Heading.Title.Bold}"
+                       Text="Welcome to EdSofta"
+                       Grid.Column="1"
+                       Grid.Row="0"
+                       HorizontalAlignment="Center"
+                       Foreground="White"/>
+
+            <TextBlock Style="{DynamicResource Body.Medium.SemiBold}"
+                       Text="{DynamicResource WelcomeMessage}"
+                       Margin="0,25"
+                       Grid.Column="1"
+                       Grid.Row="1"
+                       TextWrapping="Wrap"
+                       Foreground="White"
+                       HorizontalAlignment="Center"
+                       TextAlignment="Center"/>
+
+            <Button Style="{DynamicResource WhiteButton}"
+                    VerticalAlignment="Center"
+                    Grid.Row="2"
+                    Grid.Column="1"
+                    Name="NextLink"
+                    Click="NextLink_OnClick"
+                    Margin="0,25"
+                    Padding="40,0"
+                    HorizontalAlignment="Center"
+                    Height="42">
+
+                <TextBlock Style="{DynamicResource Body.Medium.SemiBold}"
+                           Text="Next"/>
+
+            </Button>
+
+            <!--<Border Grid.Row="2"
+                    Grid.Column="1"
+                    HorizontalAlignment="Center"
+                    Height="40"
+                    BorderThickness="1"
+                    BorderBrush="White"
+                    Margin="0,25"
+                    CornerRadius="10"
+                    Name="NextLink"
+                    MouseDown="NextLink_OnMouseDown"
+                    Cursor="Hand">
+
+                <TextBlock Style="{DynamicResource Body.Medium.SemiBold}"
+                           Text="Next"
+                           Foreground="White"
+                           x:Name="ContentText"
+                           VerticalAlignment="Center"
+                           Padding="40,0"/>
+
+                <Border.Style>
+                    <Style TargetType="Border">
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#0859B5"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Border.Style>
+            </Border>-->
+        </Grid>
+        
+
+        <Border Height="40"
+                VerticalAlignment="Bottom"
+                HorizontalAlignment="Center"
+                Margin="0,0,0,100">
+
+            <TextBlock Style="{DynamicResource Link.Medium.SemiBold}"
+                       Text="Skip this step"
+                       Foreground="White"
+                       Name="SkipLink"
+                       MouseDown="SkipLink_OnMouseDown"
+                       VerticalAlignment="Center"
+                       HorizontalAlignment="Stretch"/>
+        </Border>
+    </Grid>
+</Page>

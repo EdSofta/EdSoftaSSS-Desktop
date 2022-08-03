@@ -1,0 +1,36 @@
+﻿<UserControl x:Class="EdSofta.Views.Components.CircularProgressBar"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:EdSofta.Views.Components"
+             mc:Ignorable="d" 
+             d:DesignHeight="800" d:DesignWidth="800">
+    <Grid>
+
+        <Ellipse x:Name="Background"/>
+
+        <Grid Margin="0.5">
+            <Path x:Name="PathRoot" Stroke="{Binding SegmentColor, ElementName=userControl}"  
+                  
+                  StrokeThickness="{Binding StrokeThickness, ElementName=userControl}" HorizontalAlignment="Left" VerticalAlignment="Top">
+                <Path.Data>
+                    <PathGeometry>
+                        <PathGeometry.Figures>
+                            <PathFigureCollection>
+                                <PathFigure x:Name="PathFigure">
+                                    <PathFigure.Segments>
+                                        <PathSegmentCollection>
+                                            <ArcSegment x:Name="ArcSegment" SweepDirection="Clockwise"/>
+                                        </PathSegmentCollection>
+                                    </PathFigure.Segments>
+                                </PathFigure>
+                            </PathFigureCollection>
+                        </PathGeometry.Figures>
+                    </PathGeometry>
+                </Path.Data>
+            </Path>
+        </Grid>
+
+    </Grid>
+</UserControl>

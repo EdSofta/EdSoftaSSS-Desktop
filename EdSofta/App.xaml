@@ -1,0 +1,45 @@
+﻿<Application x:Class="EdSofta.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:converters="clr-namespace:EdSofta.ViewModels.Converters"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <!--<ResourceDictionary Source="Assets/Styles/Resources/ThemeResources.xaml"/>-->
+                <ResourceDictionary Source="Assets/Styles/Theme/Light.xaml"/>
+                <ResourceDictionary Source="Assets/Styles/ThemeButtonStyles.xaml"/>
+                <ResourceDictionary Source="Assets/Styles/ThemeContentStyles.xaml"/>
+                <ResourceDictionary Source="Assets/Styles/ThemeListViewStyles.xaml"/>
+
+                <!--Revamp-->
+                <ResourceDictionary Source="Assets/Styles/Animations.xaml"/>
+                <ResourceDictionary Source="Assets/Styles/ColorResources.xaml"/>
+                <ResourceDictionary Source="Assets/Styles/ButtonStyles.xaml"/>
+                <ResourceDictionary Source="Assets/Styles/LayoutStyles.xaml"/>
+                <ResourceDictionary Source="Assets/Styles/ListLayoutStyles.xaml"/>
+                <ResourceDictionary Source="Assets/Styles/ComboBoxStyles.xaml"/>
+                <ResourceDictionary Source="Assets/Styles/GameStyles.xaml"/>
+                <ResourceDictionary Source="Assets/Styles/FontStyles.xaml"/>
+
+                <ResourceDictionary Source="Assets/Icons/Icons.xaml"/>
+
+                <ResourceDictionary Source="Assets/Content/PaymentDetails.xaml"/>
+                <ResourceDictionary Source="Assets/Content/Onboarding.xaml"/>
+
+
+            </ResourceDictionary.MergedDictionaries>
+
+            <converters:PointsToPixelsConverter x:Key="PixelsConverter"/>
+
+            <FontFamily x:Key="Montserrat">pack://application:,,,/Assets/Fonts/#Montserrat</FontFamily>
+            <FontFamily x:Key="Mulish">pack://application:,,,/Assets/Fonts/Mulish/#Mulish</FontFamily>
+            <FontFamily x:Key="FontAwesome">pack://application:,,,/Assets/Fonts/#FontAwesome</FontFamily>
+            <FontFamily x:Key="FontAwesome5.FreeSolid">pack://application:,,,/Assets/Fonts/Font Awesome 5 Free-Solid-900.otf#Font Awesome 5 Free Solid</FontFamily>
+            <FontFamily x:Key="FontAwesome5.FreeRegular">pack://application:,,,/Assets/Fonts/Font Awesome 5 Free-Regular-400.otf#Font Awesome 5 Free Regular</FontFamily>
+            <FontFamily x:Key="FontAwesome5.BrandsRegular">pack://application:,,,/Assets/Fonts/Font Awesome 5 Brands-Regular-400.otf#Font Awesome 5 Brands Regular</FontFamily>
+        </ResourceDictionary>
+
+        </Application.Resources>
+</Application>
+    

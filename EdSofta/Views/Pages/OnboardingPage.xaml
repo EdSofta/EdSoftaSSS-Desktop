@@ -1,0 +1,270 @@
+﻿<Page x:Class="EdSofta.Views.Pages.OnboardingPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:EdSofta.Views.Pages"
+      xmlns:gif="clr-namespace:WpfAnimatedGif;assembly=WpfAnimatedGif"
+      mc:Ignorable="d" 
+      d:DesignHeight="700" d:DesignWidth="1000"
+      Background="White"
+      Title="OnboardingPage">
+
+    <Grid UseLayoutRounding="True">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Column="0"
+              Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="6*"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid Grid.Column="1"
+                  VerticalAlignment="Center">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <StackPanel Grid.Row="0">
+                    <TextBlock Style="{DynamicResource Heading.XLarge.Regular}"
+                               Text="{Binding HeaderText}"
+                               Name="Header"
+                               Foreground="Black"/>
+
+                    <TextBlock Style="{DynamicResource Heading.Medium.Regular}"
+                               TextWrapping="Wrap"
+                               Foreground="#505255"
+                               Name="Body"
+                               Margin="0,22"
+                               Text="{Binding BodyText}"/>
+                </StackPanel>
+
+                <StackPanel Grid.Row="1"
+                            Margin="0,15,0,0">
+                    <StackPanel Orientation="Horizontal">
+                        <Border Name="Slide1"
+                                Height="5"
+                                Width="50"
+                                Margin="0,0,5,0"
+                                Cursor="Hand"
+                                CornerRadius="3"
+                                MouseDown="Slide1Button_MouseDown">
+
+                            <Border.Style>
+                                <Style TargetType="Border">
+                                    <Setter Property="Background" Value="#F4F4F4"/>
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding ActiveSlide}" Value="Slide1">
+                                            <Setter Property="Background" Value="#0366D6"/>
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Border.Style>
+                        </Border>
+
+                        <Border Name="Slide2"
+                                Height="5"
+                                Width="50"
+                                MouseDown="Slide2Button_MouseDown"
+                                Margin="0,0,5,0"
+                                CornerRadius="3"
+                                Cursor="Hand">
+
+                            <Border.Style>
+                                <Style TargetType="Border">
+                                    <Setter Property="Background" Value="#F4F4F4"/>
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding ActiveSlide}" Value="Slide2">
+                                            <Setter Property="Background" Value="#0366D6"/>
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Border.Style>
+                        </Border>
+
+                        <Border Name="Slide3"
+                                Height="5"
+                                Width="50"
+                                Margin="0,0,5,0"
+                                Cursor="Hand"
+                                CornerRadius="3"
+                                MouseDown="Slide3Button_MouseDown">
+
+                            <Border.Style>
+                                <Style TargetType="Border">
+                                    <Setter Property="Background" Value="#F4F4F4"/>
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding ActiveSlide}" Value="Slide3">
+                                            <Setter Property="Background" Value="#0366D6"/>
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Border.Style>
+                        </Border>
+                    </StackPanel>
+
+                    <Button HorizontalAlignment="Left"
+                            Height="40"
+                            Margin="0,55,0,0"
+                            Name="GetStartedButton"
+                            Click="GetStartedButton_OnClick"
+                            Style="{DynamicResource ThemeButton}"
+                            Padding="40,0">
+
+                        <TextBlock Text="Get started"
+                                   Style="{DynamicResource Body.Medium.SemiBold}"/>
+                    </Button>
+                </StackPanel>
+            </Grid>
+        </Grid>
+
+        <Grid Grid.Column="1"
+              Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="10*"/>
+                <ColumnDefinition Width="2*"/>
+            </Grid.ColumnDefinitions>
+
+            <Image gif:ImageBehavior.AnimatedSource="../../Assets/Gifs/practice-materials.gif"
+                   gif:ImageBehavior.RepeatBehavior="Forever"
+                   Height="300"
+                   Name="Slide1Gif"
+                   Grid.Column="1">
+
+                <Image.RenderTransform>
+                    <TranslateTransform/>
+                </Image.RenderTransform>
+
+                <Image.Style>
+                    <Style TargetType="Image">
+                        <Setter Property="Visibility" Value="Hidden"/>
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding ActiveSlide}" Value="Slide1">
+                                <Setter Property="Visibility" Value="Visible"/>
+                            </DataTrigger>
+
+                            <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Visibility}" Value="Visible">
+                                <DataTrigger.EnterActions>
+                                    <BeginStoryboard Storyboard="{DynamicResource Animate.SlideInUpDelayedMid}"/>
+                                </DataTrigger.EnterActions>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </Image.Style>
+            </Image>
+
+            <Image gif:ImageBehavior.AnimatedSource="../../Assets/Gifs/recommendation.gif"
+                   gif:ImageBehavior.RepeatBehavior="Forever"
+                   Height="300"
+                   Name="Slide2Gif"
+                   Grid.Column="1">
+
+                <Image.RenderTransform>
+                    <TranslateTransform/>
+                </Image.RenderTransform>
+
+                <Image.Style>
+                    <Style TargetType="Image">
+                        <Setter Property="Visibility" Value="Hidden"/>
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding ActiveSlide}" Value="Slide2">
+                                <Setter Property="Visibility" Value="Visible"/>
+                            </DataTrigger>
+
+                            <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Visibility}" Value="Visible">
+                                <DataTrigger.EnterActions>
+                                    <BeginStoryboard Storyboard="{DynamicResource Animate.SlideInUpDelayedMid}"/>
+                                </DataTrigger.EnterActions>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </Image.Style>
+            </Image>
+
+            <Image gif:ImageBehavior.AnimatedSource="../../Assets/Gifs/ask-questions.gif"
+                   gif:ImageBehavior.RepeatBehavior="Forever"
+                   Height="300"
+                   Name="Slide3Gif"
+                   Grid.Column="1">
+
+                <Image.RenderTransform>
+                    <TranslateTransform/>
+                </Image.RenderTransform>
+
+                <Image.Style>
+                    <Style TargetType="Image">
+                        <Setter Property="Visibility" Value="Hidden"/>
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding ActiveSlide}" Value="Slide3">
+                                <Setter Property="Visibility" Value="Visible"/>
+                            </DataTrigger>
+
+                            <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Visibility}" Value="Visible">
+                                <DataTrigger.EnterActions>
+                                    <BeginStoryboard Storyboard="{DynamicResource Animate.SlideInUpDelayedMid}"/>
+                                </DataTrigger.EnterActions>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </Image.Style>
+            </Image>
+        </Grid>
+
+        <Grid Grid.Row="0"
+              Grid.RowSpan="2"
+              Grid.Column="0"
+              Grid.ColumnSpan="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="7*"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid Grid.Column="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="10*"/>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+
+                <Button Style="{DynamicResource RoundNeutralItemButtonStyle}"
+                        Height="45"
+                        Width="45"
+                        Grid.Row="0"
+                        Grid.Column="1"
+                        Cursor="Hand"
+                        Margin="0,38"
+                        HorizontalAlignment="Left"
+                        Click="PreviousButton_OnClick"
+                        Name="PreviousButton">
+                    <TextBlock Foreground="Black"
+                               FontFamily="{DynamicResource FontAwesome5.FreeSolid}"
+                               VerticalAlignment="Center"
+                               HorizontalAlignment="Center"
+                               Text="&#xf060;"
+                               FontSize="15"/>
+                </Button>
+
+            </Grid>
+
+
+        </Grid>
+
+    </Grid>
+</Page>

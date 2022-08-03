@@ -1,0 +1,54 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <!--<SolidColorBrush x:Key="LayoutBackground" Color="#FFFFFF"/>-->
+    <!--<SolidColorBrush x:Key="LayoutBackground" Color="#24292E"/>-->
+
+    <!--<SolidColorBrush x:Key="LayoutAccent" Color="#F4F4F4"/>-->
+    <!--<SolidColorBrush x:Key="LayoutAccent" Color="#494D52"/>-->
+
+    <!--<SolidColorBrush x:Key="ContentText" Color="#172B4D"/>-->
+    <!--<SolidColorBrush x:Key="ContentText" Color="#FFFFFF"/>-->
+
+    <!--<SolidColorBrush x:Key="ContentText[Secondary]" Color="#505255"/>-->
+    <!--<SolidColorBrush x:Key="ContentText[Secondary]" Color="#FFFFFF"/>-->
+
+
+    <!--<SolidColorBrush x:Key="ButtonBackground" Color="#A7CAF1"/>-->
+    <SolidColorBrush x:Key="ButtonBackground" Color="#0366D6"/>
+    <!--<SolidColorBrush x:Key="ButtonText" Color="#153B50"/>-->
+    <SolidColorBrush x:Key="ButtonText" Color="#FFFFFF"/>
+    <SolidColorBrush x:Key="ButtonBackground[Active]" Color="#0366D6"/>
+    <SolidColorBrush x:Key="ButtonText[Active]" Color="#FFFFFF"/>
+    <SolidColorBrush x:Key="ThemeGreen" Color="#29AE37"/>
+    <SolidColorBrush x:Key="ThemeYellow" Color="#FFC107"/>
+    <SolidColorBrush x:Key="ThemeRed" Color="#D5011D"/>
+    <SolidColorBrush x:Key="ThemeGrey" Color="#C4C4C4"/>
+    <SolidColorBrush x:Key="RedButtonBackground" Color="#D24146"/>
+    <SolidColorBrush x:Key="RedButtonText" Color="#FFFFFF"/>
+    <SolidColorBrush x:Key="RedButtonBackground[Active]" Color="#D5011D"/>
+    <SolidColorBrush x:Key="RedButtonText[Active]" Color="#FFFFFF"/>
+
+    <SolidColorBrush x:Key="ComboButtonBackground" Color="#A7CAF1"/>
+    <SolidColorBrush x:Key="ComboButtonText" Color="#153B50"/>
+    <SolidColorBrush x:Key="ComboButtonBackground[Active]" Color="#0366D6"/>
+    <SolidColorBrush x:Key="ComboButtonText[Active]" Color="#FFFFFF"/>
+
+    <SolidColorBrush x:Key="ItemCircleBackground" Color="#A7CAF1"/>
+    <SolidColorBrush x:Key="ItemCircleForeground" Color="#0366D6"/>
+
+    <SolidColorBrush x:Key="ThemeScrollThumb" Color="#FF8C8C8C"/>
+    <SolidColorBrush x:Key="ThemeScrollThumbOver" Color="#FF000000"/>
+
+    <Color x:Key="Color.LightBlue">#A7CAF1</Color>
+    <Color x:Key="Color.ButtonBackground[Active]">#0366D6</Color>
+    <Color x:Key="Color.ThemeGrey">#C4C4C4</Color>
+
+    <LinearGradientBrush x:Key="BlueGradient" StartPoint="-0.60,0.9" EndPoint="0.65,1" Opacity="0.8">
+        <GradientStop Color="#CC000000" Offset="0.09"/>
+        <GradientStop Color="#0366D6" Offset="0.89"/>
+    </LinearGradientBrush>
+
+    <ImageBrush x:Key="HeaderBackground" ImageSource="../Images/header-background.png" Stretch="UniformToFill"></ImageBrush>
+    
+</ResourceDictionary>

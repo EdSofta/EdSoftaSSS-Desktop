@@ -1,0 +1,801 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{9E80377A-7EF8-4D05-83FE-AD1BB39C8262}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>EdSofta</RootNamespace>
+    <AssemblyName>EdSofta</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>EdSoftaIcon.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup />
+  <PropertyGroup />
+  <PropertyGroup />
+  <PropertyGroup />
+  <PropertyGroup />
+  <PropertyGroup />
+  <PropertyGroup />
+  <PropertyGroup />
+  <ItemGroup>
+    <Reference Include="DotNetZip, Version=1.14.0.0, Culture=neutral, PublicKeyToken=6583c7c814667745, processorArchitecture=MSIL">
+      <HintPath>..\packages\DotNetZip.1.14.0\lib\net40\DotNetZip.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="HtmlAgilityPack, Version=1.11.24.0, Culture=neutral, PublicKeyToken=bd319b19eaf3b43a, processorArchitecture=MSIL">
+      <HintPath>..\packages\HtmlAgilityPack.1.11.24\lib\Net45\HtmlAgilityPack.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="HtmlRenderer, Version=1.5.0.5, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\HtmlRenderer.Core.1.5.0.5\lib\net45\HtmlRenderer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="HtmlRenderer.WPF, Version=1.5.0.6, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\HtmlRenderer.WPF.1.5.0.6\lib\net45\HtmlRenderer.WPF.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="NCalc, Version=1.3.8.0, Culture=neutral, PublicKeyToken=973cde3f1cafed03, processorArchitecture=MSIL">
+      <HintPath>..\packages\ncalc.1.3.8\lib\NCalc.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="PresentationFramework.Aero2" />
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.SQLite, Version=1.0.113.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.SQLite.Core.1.0.113.1\lib\net45\System.Data.SQLite.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Data.SQLite.EF6, Version=1.0.113.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.SQLite.EF6.1.0.113.0\lib\net45\System.Data.SQLite.EF6.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Data.SQLite.Linq, Version=1.0.113.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.SQLite.Linq.1.0.113.0\lib\net45\System.Data.SQLite.Linq.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="WpfAnimatedGif, Version=2.0.0.0, Culture=neutral, PublicKeyToken=9e7cd3b544a090dc, processorArchitecture=MSIL">
+      <HintPath>..\packages\WpfAnimatedGif.2.0.0\lib\net40\WpfAnimatedGif.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="Constants\Difficulty.cs" />
+    <Compile Include="Constants\GameConstants.cs" />
+    <Compile Include="Constants\Keys.cs" />
+    <Compile Include="Constants\LRType.cs" />
+    <Compile Include="Constants\NotificationType.cs" />
+    <Compile Include="Constants\ExamQuestionType.cs" />
+    <Compile Include="Constants\Theme.cs" />
+    <Compile Include="Constants\Urls.cs" />
+    <Compile Include="Constants\UserType.cs" />
+    <Compile Include="DataAccess\BaseRepository.cs" />
+    <Compile Include="DataAccess\GameRepository.cs" />
+    <Compile Include="DataAccess\IRepository.cs" />
+    <Compile Include="DataAccess\IUnitOfWork.cs" />
+    <Compile Include="DataAccess\LRRepository.cs" />
+    <Compile Include="DataAccess\NotificationRepository.cs" />
+    <Compile Include="DataAccess\QuestionRepository.cs" />
+    <Compile Include="DataAccess\UnitOfWork.cs" />
+    <Compile Include="DataAccess\UserRepository.cs" />
+    <Compile Include="Data\ApplicationDbContext.cs" />
+    <Compile Include="Enums\NotificationType.cs" />
+    <Compile Include="Enums\PracticeType.cs" />
+    <Compile Include="Enums\UpdateResultType.cs" />
+    <Compile Include="Interfaces\IContentService.cs" />
+    <Compile Include="Models\ContentUpdateResponse.cs" />
+    <Compile Include="Models\Practice.cs" />
+    <Compile Include="Enums\QuestionType.cs" />
+    <Compile Include="Enums\UserActionType.cs" />
+    <Compile Include="Enums\WindowsTheme.cs" />
+    <Compile Include="Interfaces\IActivationService.cs" />
+    <Compile Include="Interfaces\IGameService.cs" />
+    <Compile Include="Interfaces\ILRecService.cs" />
+    <Compile Include="Interfaces\INotificationService.cs" />
+    <Compile Include="Interfaces\IOnboardingService.cs" />
+    <Compile Include="Interfaces\IPracticeService.cs" />
+    <Compile Include="Interfaces\IQuestion.cs" />
+    <Compile Include="Interfaces\IQuestionBankService.cs" />
+    <Compile Include="Interfaces\IPracticeModeService.cs" />
+    <Compile Include="Interfaces\IQuestionRepositoryService.cs" />
+    <Compile Include="Interfaces\IResultService.cs" />
+    <Compile Include="Interfaces\ISavedQuestionService.cs" />
+    <Compile Include="Interfaces\ISettingsService.cs" />
+    <Compile Include="Interfaces\IStudyMaterialService.cs" />
+    <Compile Include="Interfaces\IUserService.cs" />
+    <Compile Include="Interfaces\IWebClientService.cs" />
+    <Compile Include="Migrations\ApplicationDbContextHelper.cs" />
+    <Compile Include="Migrations\ApplicationDbContextMigration.cs" />
+    <Compile Include="Models\ErrorReport.cs" />
+    <Compile Include="Models\GameQuestion.cs" />
+    <Compile Include="Models\KeyResponse.cs" />
+    <Compile Include="Models\LRecommendation.cs" />
+    <Compile Include="Models\NotificationClass.cs" />
+    <Compile Include="Models\Performance.cs" />
+    <Compile Include="Models\PracticeMode.cs" />
+    <Compile Include="Models\Product.cs" />
+    <Compile Include="Models\ProficiencyData.cs" />
+    <Compile Include="Models\QuestionData.cs" />
+    <Compile Include="Models\QuestionDTO.cs" />
+    <Compile Include="Models\QuestionBank.cs" />
+    <Compile Include="Models\Grade.cs" />
+    <Compile Include="Models\Response.cs" />
+    <Compile Include="Models\Study.cs" />
+    <Compile Include="Models\StudyData.cs" />
+    <Compile Include="Models\UpdateRequestData.cs" />
+    <Compile Include="Models\UserData.cs" />
+    <Compile Include="Repositories\Game.cs" />
+    <Compile Include="Repositories\LearningRecommendation.cs" />
+    <Compile Include="Repositories\Notification.cs" />
+    <Compile Include="Repositories\Question.cs" />
+    <Compile Include="Models\Result.cs" />
+    <Compile Include="Models\SavedQuestion.cs" />
+    <Compile Include="Models\Topic.cs" />
+    <Compile Include="Models\UserAction.cs" />
+    <Compile Include="Repositories\SchemaInfo.cs" />
+    <Compile Include="Repositories\User.cs" />
+    <Compile Include="Services\ActivationService.cs" />
+    <Compile Include="Services\ContentService.cs" />
+    <Compile Include="Services\GameService.cs" />
+    <Compile Include="Services\LRecService.cs" />
+    <Compile Include="Services\NotificationService.cs" />
+    <Compile Include="Services\OnboardingService.cs" />
+    <Compile Include="Services\PracticeByTopicService.cs" />
+    <Compile Include="Services\PracticeService.cs" />
+    <Compile Include="Services\QuestionBankService.cs" />
+    <Compile Include="Services\QuestionRepositoryService.cs" />
+    <Compile Include="Services\ResultService.cs" />
+    <Compile Include="Services\SavedQuestionService.cs" />
+    <Compile Include="Services\SettingsService.cs" />
+    <Compile Include="Services\StudyMaterialService.cs" />
+    <Compile Include="Services\TheoryPracticeService.cs" />
+    <Compile Include="Services\UserService.cs" />
+    <Compile Include="Services\WebClientService.cs" />
+    <Compile Include="ViewModels\Converters\ContentToHTMLConverter.cs" />
+    <Compile Include="ViewModels\Converters\DateTimeConverter.cs" />
+    <Compile Include="ViewModels\Converters\EnumMatchToBooleanConverter.cs" />
+    <Compile Include="ViewModels\Converters\IndexConverter.cs" />
+    <Compile Include="ViewModels\Converters\ItemsCountConverter.cs" />
+    <Compile Include="ViewModels\Converters\LRTypeButtonConverter.cs" />
+    <Compile Include="ViewModels\Converters\MatchingStringsToBooleanConverter.cs" />
+    <Compile Include="ViewModels\Converters\MultiObjectsToValueConverter.cs" />
+    <Compile Include="ViewModels\Converters\MultiSelectToBooleanConverter.cs" />
+    <Compile Include="ViewModels\Converters\NotificationIconTypeConverter.cs" />
+    <Compile Include="ViewModels\Collections\UsersCollection.cs" />
+    <Compile Include="ViewModels\Collections\NotificationsCollection.cs" />
+    <Compile Include="ViewModels\Collections\ResultHistoryCollection.cs" />
+    <Compile Include="ViewModels\Collections\SavedQuestionsCollection.cs" />
+    <Compile Include="ViewModels\Converters\InputContentConverter.cs" />
+    <Compile Include="ViewModels\Converters\ItemsContentVisibilityConverter.cs" />
+    <Compile Include="ViewModels\Converters\ModalVisibilityConverter.cs" />
+    <Compile Include="ViewModels\Converters\NotificationQuantityConverter.cs" />
+    <Compile Include="ViewModels\Converters\NotificationTypeConverter.cs" />
+    <Compile Include="ViewModels\Converters\NumberToTimeConverter.cs" />
+    <Compile Include="ViewModels\Converters\PageToTextValueConverter.cs" />
+    <Compile Include="ViewModels\Converters\PointsToPixelsConverter.cs" />
+    <Compile Include="ViewModels\Converters\SelectedItemsToBooleanConverter.cs" />
+    <Compile Include="ViewModels\Converters\TagToVisibilityConverter.cs" />
+    <Compile Include="Services\PracticeByYearService.cs" />
+    <Compile Include="ViewModels\GameViewModelClasses\GameQuestionViewModel.cs" />
+    <Compile Include="ViewModels\GameViewModelClasses\GameViewModel.cs" />
+    <Compile Include="ViewModels\GameViewModelClasses\HomeViewModel.cs" />
+    <Compile Include="ViewModels\GameViewModelClasses\ProfessionViewModel.cs" />
+    <Compile Include="ViewModels\GameViewModelClasses\SubjectsViewModel.cs" />
+    <Compile Include="ViewModels\Utility\App.cs" />
+    <Compile Include="ViewModels\Utility\AppData.cs" />
+    <Compile Include="ViewModels\Utility\AppSetup.cs" />
+    <Compile Include="ViewModels\Utility\BaseOperation.cs" />
+    <Compile Include="ViewModels\Utility\ContentResourceUtility.cs" />
+    <Compile Include="ViewModels\Utility\DecryptionUtility.cs" />
+    <Compile Include="ViewModels\Utility\FileCopiedEventArgs.cs" />
+    <Compile Include="ViewModels\Utility\FileCopier.cs" />
+    <Compile Include="ViewModels\Utility\FileParser.cs" />
+    <Compile Include="ViewModels\Utility\FolderClearer.cs" />
+    <Compile Include="ViewModels\Utility\FolderCopier.cs" />
+    <Compile Include="ViewModels\Utility\GameResourceUtility.cs" />
+    <Compile Include="ViewModels\Utility\NotifyTaskCompletion.cs" />
+    <Compile Include="ViewModels\Utility\Resources.cs" />
+    <Compile Include="ViewModels\Utility\SavedResourceUtility.cs" />
+    <Compile Include="ViewModels\Utility\ScrollAnimationBehavior.cs" />
+    <Compile Include="ViewModels\Utility\StudyResourceUtility.cs" />
+    <Compile Include="ViewModels\Utility\TaskCompletedEventArgs.cs" />
+    <Compile Include="ViewModels\Utility\TempResourceUtility.cs" />
+    <Compile Include="ViewModels\Utility\AppValidation.cs" />
+    <Compile Include="ViewModels\Utility\ThemeHelper.cs" />
+    <Compile Include="ViewModels\Utility\WebBrowserHelper.cs" />
+    <Compile Include="ViewModels\ViewModelClasses\CalculatorViewModel.cs" />
+    <Compile Include="ViewModels\ViewModelClasses\ContentUpdateViewModel.cs" />
+    <Compile Include="ViewModels\GameViewModelClasses\GameQuestionBankViewModel.cs" />
+    <Compile Include="ViewModels\ViewModelClasses\LandingPageViewModel.cs" />
+    <Compile Include="ViewModels\ViewModelClasses\LicensePageViewModel.cs" />
+    <Compile Include="ViewModels\ViewModelClasses\LRViewModel.cs" />
+    <Compile Include="ViewModels\ViewModelClasses\NotificationsViewModel.cs" />
+    <Compile Include="ViewModels\ViewModelClasses\OnboardingViewModel.cs" />
+    <Compile Include="ViewModels\ViewModelClasses\PracticeOnboardViewModel.cs" />
+    <Compile Include="ViewModels\ViewModelClasses\PracticeSelectionViewModel.cs" />
+    <Compile Include="ViewModels\ViewModelClasses\PracticeViewModel.cs" />
+    <Compile Include="ViewModels\ViewModelClasses\QuestionBankViewModel.cs" />
+    <Compile Include="ViewModels\ViewModelClasses\QuestionViewModel.cs" />
+    <Compile Include="ViewModels\ViewModelClasses\ResultHistoryViewModel.cs" />
+    <Compile Include="ViewModels\ViewModelClasses\ResultViewModel.cs" />
+    <Compile Include="ViewModels\ViewModelClasses\SavedQuestionViewModel.cs" />
+    <Compile Include="ViewModels\ViewModelClasses\SettingsViewModel.cs" />
+    <Compile Include="ViewModels\ViewModelClasses\SignUpViewModel.cs" />
+    <Compile Include="ViewModels\ViewModelClasses\StudyMaterialDataViewModel.cs" />
+    <Compile Include="ViewModels\ViewModelClasses\StudyMaterialsViewModel.cs" />
+    <Compile Include="ViewModels\ViewModelClasses\StudyViewModel.cs" />
+    <Compile Include="ViewModels\ViewModelClasses\SubjectTopicGradeViewModel.cs" />
+    <Compile Include="ViewModels\ViewModelClasses\ThemeViewModel.cs" />
+    <Compile Include="ViewModels\ViewModelClasses\TopicViewModel.cs" />
+    <Compile Include="ViewModels\Utility\UtilityClass.cs" />
+    <Compile Include="ViewModels\Utility\DeviceInformationClass.cs" />
+    <Compile Include="ViewModels\ViewModelClasses\TTSMediaViewModel.cs" />
+    <Compile Include="ViewModels\ViewModelClasses\UsersViewModel.cs" />
+    <Compile Include="ViewModels\ViewModelClasses\UserViewModel.cs" />
+    <Compile Include="Views\Components\CircularProgressBar.xaml.cs">
+      <DependentUpon>CircularProgressBar.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\GamePages\GameFinishedPage.xaml.cs">
+      <DependentUpon>GameFinishedPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\GamePages\GameHomePage.xaml.cs">
+      <DependentUpon>GameHomePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\GamePages\GamePlayPage.xaml.cs">
+      <DependentUpon>GamePlayPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pages\ActivationPage.xaml.cs">
+      <DependentUpon>ActivationPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pages\ContentUpdatePage.xaml.cs">
+      <DependentUpon>ContentUpdatePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pages\ForumPage.xaml.cs">
+      <DependentUpon>ForumPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pages\HomePage.xaml.cs">
+      <DependentUpon>HomePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pages\LandingPage.xaml.cs">
+      <DependentUpon>LandingPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pages\LicensesPage.xaml.cs">
+      <DependentUpon>LicensesPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pages\LRPage.xaml.cs">
+      <DependentUpon>LRPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pages\NotesPage.xaml.cs">
+      <DependentUpon>NotesPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pages\NotificationsPage.xaml.cs">
+      <DependentUpon>NotificationsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pages\OnboardingPage.xaml.cs">
+      <DependentUpon>OnboardingPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pages\PaymentDetailsPage.xaml.cs">
+      <DependentUpon>PaymentDetailsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pages\PracticeByTopicPage.xaml.cs">
+      <DependentUpon>PracticeByTopicPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pages\PracticeByYearPage.xaml.cs">
+      <DependentUpon>PracticeByYearPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pages\PracticeExamSelectionPage.xaml.cs">
+      <DependentUpon>PracticeExamSelectionPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pages\PracticeOnboardPage.xaml.cs">
+      <DependentUpon>PracticeOnboardPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pages\ResultHistoryPage.xaml.cs">
+      <DependentUpon>ResultHistoryPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pages\SavedQuestionsPage.xaml.cs">
+      <DependentUpon>SavedQuestionsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pages\SettingsPage.xaml.cs">
+      <DependentUpon>SettingsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pages\SignUpPage.xaml.cs">
+      <DependentUpon>SignUpPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pages\SplashPage.xaml.cs">
+      <DependentUpon>SplashPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pages\StudyMaterialsPage.xaml.cs">
+      <DependentUpon>StudyMaterialsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pages\StudyMaterialsViewPage.xaml.cs">
+      <DependentUpon>StudyMaterialsViewPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pages\TutorPage.xaml.cs">
+      <DependentUpon>TutorPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pages\UsersPage.xaml.cs">
+      <DependentUpon>UsersPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pages\WelcomePage.xaml.cs">
+      <DependentUpon>WelcomePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Windows\CalculatorWindow.xaml.cs">
+      <DependentUpon>CalculatorWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Windows\DialogWindow.xaml.cs">
+      <DependentUpon>DialogWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Windows\GameWindow.xaml.cs">
+      <DependentUpon>GameWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Windows\TestingWindow.xaml.cs">
+      <DependentUpon>TestingWindow.xaml</DependentUpon>
+    </Compile>
+    <Page Include="Assets\Content\Licenses.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Assets\Content\Onboarding.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Assets\Content\PaymentDetails.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Assets\Icons\Icons.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Assets\Styles\Animations.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Assets\Styles\ButtonStyles.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Assets\Styles\ColorResources.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Assets\Styles\FontStyles.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Assets\Styles\GameStyles.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Assets\Styles\LayoutStyles.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Assets\Styles\ListLayoutStyles.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Assets\Styles\ComboBoxStyles.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Assets\Styles\ThemeButtonStyles.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Assets\Styles\ThemeContentStyles.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Assets\Styles\Resources\ThemeResources.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Assets\Styles\ThemeListViewStyles.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Assets\Styles\Theme\Dark.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Assets\Styles\Theme\Light.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Enums\ModalState.cs" />
+    <Compile Include="Interfaces\IModal.cs" />
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="Views\Components\CircularProgressBar.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\GamePages\GameFinishedPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\GamePages\GameHomePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\GamePages\GamePlayPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Pages\ActivationPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Pages\ContentUpdatePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Pages\ForumPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Pages\HomePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Pages\LandingPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Pages\LicensesPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Pages\LRPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Pages\NotesPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Pages\NotificationsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Pages\OnboardingPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Pages\PaymentDetailsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Pages\PracticeByTopicPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Pages\PracticeByYearPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Pages\PracticeExamSelectionPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Pages\PracticeOnboardPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Pages\ResultHistoryPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Pages\SavedQuestionsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Pages\SettingsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Pages\SignUpPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Pages\SplashPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Pages\StudyMaterialsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Pages\StudyMaterialsViewPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Pages\TutorPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Pages\UsersPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Pages\WelcomePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Windows\CalculatorWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Windows\DialogWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Windows\GameWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Windows\TestingWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Models\Modal.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <Resource Include="Assets\Images\header-background.png" />
+    <Resource Include="Assets\Images\document.png" />
+    <Resource Include="Assets\Images\guest-avatars.png" />
+    <Resource Include="Assets\Images\notifications.png" />
+    <Resource Include="Assets\Gifs\ask-questions.gif" />
+    <Resource Include="Assets\Gifs\practice-materials.gif" />
+    <Resource Include="Assets\Gifs\recommendation.gif" />
+    <Resource Include="Assets\Images\bottom-image.png" />
+    <Resource Include="Assets\Images\file.png" />
+    <Resource Include="Assets\Images\center-image.png" />
+    <Content Include="Licenses.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Resource Include="Assets\Fonts\Font Awesome 5 Brands-Regular-400.otf" />
+    <Resource Include="Assets\Fonts\Font Awesome 5 Free-Regular-400.otf" />
+    <Resource Include="Assets\Fonts\Font Awesome 5 Free-Solid-900.otf" />
+    <Resource Include="Assets\Fonts\fontawesome-webfont.ttf" />
+    <Resource Include="Assets\Fonts\Montserrat-Bold.ttf" />
+    <Resource Include="Assets\Fonts\Montserrat-Regular.ttf" />
+    <Resource Include="Assets\Fonts\Montserrat-SemiBold.ttf" />
+    <Resource Include="Assets\Fonts\Montserrat-Thin.ttf" />
+    <Resource Include="Assets\Fonts\Mulish\Mulish-Italic-VariableFont_wght.ttf" />
+    <Resource Include="Assets\Fonts\Mulish\Mulish-VariableFont_wght.ttf" />
+    <Content Include="demoapp.sqlite">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <None Include="app.manifest" />
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Images\edsoftaicon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Images\avatars.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Images\studentstudyillustration.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="EdSoftaIcon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Images\EdSoftaIcon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Images\addicon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Images\joinforum.png" />
+    <Resource Include="Assets\Images\playgame.png" />
+    <Resource Include="Assets\Images\practiceexam.png" />
+    <Resource Include="Assets\Images\recommendations.png" />
+    <Resource Include="Assets\Images\savedquestions.png" />
+    <Resource Include="Assets\Images\searchfortutor.png" />
+    <Resource Include="Assets\Images\studymaterials.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Images\bookmark.png" />
+    <Resource Include="Assets\Images\bubble.png" />
+    <Resource Include="Assets\Images\idea.png" />
+    <Resource Include="Assets\Images\practice.png" />
+    <Resource Include="Assets\Images\puzzle.png" />
+    <Resource Include="Assets\Images\search.png" />
+    <Resource Include="Assets\Images\study_materials.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Game Assets\hero.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Game Assets\hero-text.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Game Assets\about.png" />
+    <Resource Include="Assets\Game Assets\add time.png" />
+    <Resource Include="Assets\Game Assets\badge.png" />
+    <Resource Include="Assets\Game Assets\coinbox.png" />
+    <Resource Include="Assets\Game Assets\fifty-fifty.png" />
+    <Resource Include="Assets\Game Assets\pause.png" />
+    <Resource Include="Assets\Game Assets\settings.png" />
+    <Resource Include="Assets\Game Assets\skip question.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Game Assets\exit-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Game Assets\big-background.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Game Assets\coin.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Game Assets\check.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Game Assets\map pin.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="SpeechLib">
+      <Guid>{C866CA3A-32F7-11D2-9602-00C04F8EE628}</Guid>
+      <VersionMajor>5</VersionMajor>
+      <VersionMinor>4</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
+    <Error Condition="!Exists('..\packages\System.Data.SQLite.Core.1.0.113.1\build\net45\System.Data.SQLite.Core.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\System.Data.SQLite.Core.1.0.113.1\build\net45\System.Data.SQLite.Core.targets'))" />
+  </Target>
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
+  <Import Project="..\packages\System.Data.SQLite.Core.1.0.113.1\build\net45\System.Data.SQLite.Core.targets" Condition="Exists('..\packages\System.Data.SQLite.Core.1.0.113.1\build\net45\System.Data.SQLite.Core.targets')" />
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
